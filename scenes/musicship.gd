@@ -40,7 +40,11 @@ func _physics_process(delta):
 func start_move():
 	$move_tween.start()
 	can_move = false
-	
+	if movex == lane_move:
+		$AnimationPlayer.play("bank_left")
+	else:
+		$AnimationPlayer.play("bank_right")
+		
 
 func _on_move_tween_tween_completed(object, key):
 	can_move = true
