@@ -12,7 +12,7 @@ func _ready():
 	fixed_trans = translation
 
 func take_hit():
-	pass
+	$enemy_hit_effect/Particles.emitting = true
 
 func _physics_process(delta):
 	if $left_area.get_overlapping_areas().size() > 0:

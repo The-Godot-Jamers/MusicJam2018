@@ -37,6 +37,9 @@ func shoot():
 	im.add_vertex(begin)
 	im.add_vertex(end)
 	im.end()
+	if $RayCast.is_colliding():
+		var hit = $RayCast.get_collider()
+		hit.take_hit()
 
 func _on_move_tween_tween_completed(object, key):
 	can_move = true

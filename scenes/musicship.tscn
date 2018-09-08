@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/musicship.gd" type="Script" id=1]
 [ext_resource path="res://scenes/engineparticles.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://ships/musicship/glass (Instance).material" type="Material" id=14]
 [ext_resource path="res://ships/musicship/glass (Instance) (Instance).material" type="Material" id=15]
 [ext_resource path="res://scenes/detection_area.gd" type="Script" id=16]
+[ext_resource path="res://ships/musicship/ship_hit.material" type="Material" id=17]
 
 [sub_resource type="ArrayMesh" id=1]
 
@@ -186,6 +187,52 @@ points = PoolVector3Array( -0.134766, -0.282715, 0.316162, -0.114868, -0.503906,
 [sub_resource type="BoxShape" id=3]
 
 extents = Vector3( 1, 1, 8 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Gravity", "Initial Velocity", "Spread" ]
+
+[sub_resource type="CapsuleMesh" id=6]
+
+material = ExtResource( 17 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+radius = 0.1
+mid_height = 0.1
+radial_segments = 32
+rings = 4
 
 [node name="musicship" type="Area" index="0"]
 
@@ -390,6 +437,38 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="enemy_hit_effect" type="Spatial" parent="." index="8"]
+
+[node name="Particles" type="Particles" parent="enemy_hit_effect" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.42482 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = false
+amount = 50
+lifetime = 0.4
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -0.31821, -0.232045, -1.05555, 0.636421, 0.464089, 2.1111 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+draw_passes = 1
+draw_pass_1 = SubResource( 6 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time" ]
 
 [connection signal="tween_completed" from="move_tween" to="." method="_on_move_tween_tween_completed"]
 

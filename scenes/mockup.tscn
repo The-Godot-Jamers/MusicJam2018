@@ -37,7 +37,6 @@ emitting = true
 [node name="musicship" parent="." index="1" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.8133 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="engineparticles" parent="musicship" index="0"]
 
