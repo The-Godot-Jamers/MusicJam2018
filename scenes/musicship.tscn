@@ -186,7 +186,7 @@ points = PoolVector3Array( -0.134766, -0.282715, 0.316162, -0.114868, -0.503906,
 
 [sub_resource type="BoxShape" id=3]
 
-extents = Vector3( 1, 1, 8 )
+extents = Vector3( 1, 1, 10 )
 
 [sub_resource type="ParticlesMaterial" id=4]
 
@@ -303,13 +303,13 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="center_area" type="Area" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
 gravity_point = false
 gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
+gravity_vec = Vector3( 0, 0, 0 )
 gravity = 9.8
 linear_damp = 0.1
 angular_damp = 1.0
@@ -335,7 +335,7 @@ disabled = false
 
 [node name="back_area" type="Area" parent="." index="4"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -367,7 +367,7 @@ disabled = false
 
 [node name="left_area" type="Area" parent="." index="5"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -399,7 +399,7 @@ disabled = false
 
 [node name="right_area" type="Area" parent="." index="6"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 8 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -463,7 +463,7 @@ randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_aabb = AABB( -0.31821, -0.232045, -1.05555, 0.636421, 0.464089, 2.1111 )
-local_coords = true
+local_coords = false
 draw_order = 0
 process_material = SubResource( 4 )
 draw_passes = 1
