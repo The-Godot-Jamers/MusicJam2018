@@ -1,15 +1,9 @@
 extends Area
 
-var speed = 20
-var rot_speed = 40
-var velocity = Vector3()
-var accel = 5
-var direction
 
 var begin = Vector3(0.0,0,0)
 var end = Vector3(0,0,15)
 var m = SpatialMaterial.new()
-var target = Vector3()
 onready var im = get_node("draw") #ImmediateGeometry
 var lane_move = 5
 var move_speed = 0.6
@@ -36,8 +30,6 @@ func _input(event):
 		shoot()
 	else:
 		im.clear() #clear the laser if not shooting
-	
-
 
 func shoot():
 	im.set_material_override(m)
@@ -52,7 +44,6 @@ func _on_move_tween_tween_completed(object, key):
 
 func take_hit():
 	$hit_effect.parts.emitting = true
-
 
 func _on_lane_timer_timeout():
 	get_parent().create_lanes()

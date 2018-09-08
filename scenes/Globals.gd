@@ -38,13 +38,13 @@ func _input(event):
 			menu.show()
 			get_tree().paused = true
 
-	if lvl != 0:
-		if Input.is_action_just_pressed("1"):
-			camera1.current = true
-		if Input.is_action_just_pressed("2"):
-			camera2.current = true
-		if Input.is_action_just_pressed("3"):
-			camera3.current = true
+#	if lvl != 0:
+#		if Input.is_action_just_pressed("1"):
+#			camera1.current = true
+#		if Input.is_action_just_pressed("2"):
+#			camera2.current = true
+#		if Input.is_action_just_pressed("3"):
+#			camera3.current = true
 
 
 

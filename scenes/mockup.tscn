@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/music.tscn" type="PackedScene" id=7]
 
-[node name="mockup" type="Spatial"]
+[node name="mockup" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

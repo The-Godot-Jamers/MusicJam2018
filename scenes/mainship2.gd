@@ -1,4 +1,4 @@
-extends KinematicBody
+extends area
 
 onready var main = get_parent().get_node("mainship")
 var fixed_trans = Vector3()

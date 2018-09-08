@@ -40,7 +40,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Scale", "Spread", "Trail" ]
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=2]
 
 render_priority = 0
 shader = ExtResource( 1 )
@@ -62,9 +62,9 @@ shader_param/uv1_offset = Vector3( 0, 0, 0 )
 shader_param/uv2_scale = Vector3( 1, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=3]
 
-material = SubResource( 4 )
+material = SubResource( 2 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 0.2, 0.2, 0.2 )
 subdivide_width = 0
@@ -97,7 +97,7 @@ local_coords = true
 draw_order = 0
 process_material = SubResource( 1 )
 draw_passes = 1
-draw_pass_1 = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )
 _sections_unfolded = [ "Draw Passes", "Process Material", "Time" ]
 
 
