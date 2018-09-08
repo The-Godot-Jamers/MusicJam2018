@@ -10,3 +10,7 @@ func _physics_process(delta):
 
 func _on_asteroid_body_entered(body):
 	body.take_hit()
+
+
+func _on_asteroid_area_entered(area):
+	area.take_hit()

@@ -23,26 +23,24 @@ func _ready():
 	m.albedo_color = Color(1.0, 0.0, 0.0, 1.0)
 
 func _input(event):
-	print(can_move)
 	if Input.is_action_just_pressed("left") && can_move:
-		#$move_tween.interpolate_method(self, "move", Vector3(0.0, 0.0, 0.0),Vector3(lane_move, 0.0, 0.0),move_speed,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(lane_move,0.0,0.0),move_speed,Tween.TRANS_ELASTIC,Tween.EASE_IN_OUT)
 		$move_tween.start()
 		can_move = false
 	if Input.is_action_just_pressed("right") && can_move:
-		#$move_tween.interpolate_method(self, "move", Vector3(0.0, 0.0, 0.0),Vector3(-lane_move, 0.0, 0.0),move_speed,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(-lane_move,0.0,0.0),move_speed,Tween.TRANS_ELASTIC,Tween.EASE_IN_OUT)
 		$move_tween.start()
 		can_move = false
-
-#func move(trans):
-#	can_move = false
-#	move_and_collide(trans)
+	
+	if Input.is_action_pressed("shoot"):
+		shoot()
+	else:
+		im.clear() #clear the laser if not shooting
+	
 
 
 func shoot():
 	im.set_material_override(m)
-	im.clear() # is this necessary???? or even bad
 	im.begin(Mesh.PRIMITIVE_LINES)
 	im.add_vertex(begin)
 	im.add_vertex(end)
