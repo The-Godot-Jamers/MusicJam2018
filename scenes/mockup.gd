@@ -18,12 +18,12 @@ func _ready():
 func create_lanes():
 	im.clear()
 	im.set_material_override(m)
-	for i in 10:
+	for i in 12:
 		im.begin(Mesh.PRIMITIVE_LINES)
 		im.add_vertex(Vector3($mainship.translation.x, 0.0, 0.0) + Vector3(lane_offset + (i * lane_spacing),0.0,-100.0))
 		im.add_vertex(Vector3($mainship.translation.x, 0.0, 0.0) + Vector3(lane_offset + (i * lane_spacing),0.0,100.0))
 		im.end()
-	for z in 10:
+	for z in 12:
 		im.begin(Mesh.PRIMITIVE_LINES)
 		im.add_vertex(Vector3($mainship.translation.x, 0.0, 0.0) + Vector3(lane_offset + (-z * lane_spacing),0.0,-100.0))
 		im.add_vertex(Vector3($mainship.translation.x, 0.0, 0.0) + Vector3(lane_offset + (-z * lane_spacing),0.0,100.0))
@@ -32,6 +32,6 @@ func create_lanes():
 func _on_asteroid_timer_timeout():
 	var aster = asteroid.instance()
 	aster.translation = Vector3()
-	aster.translation.z = 500
+	aster.translation.z = 200
 	aster.translation.x = 5 * round(rand_range($mainship.translation.x -10, $mainship.translation.x +10))
 	add_child(aster)
