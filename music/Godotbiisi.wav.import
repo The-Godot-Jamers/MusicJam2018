@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Godotbiisi.wav-64dc644a365aff7e1de3066f92a53e38.sample"
+
+[deps]
+
+source_file="res://music/Godotbiisi.wav"
+dest_files=[ "res://.import/Godotbiisi.wav-64dc644a365aff7e1de3066f92a53e38.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

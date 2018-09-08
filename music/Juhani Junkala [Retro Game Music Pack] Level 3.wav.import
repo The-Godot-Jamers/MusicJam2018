@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Juhani Junkala [Retro Game Music Pack] Level 3.wav-138f7de35e95b2275ab4c10a52e3308b.sample"
+
+[deps]
+
+source_file="res://music/Juhani Junkala [Retro Game Music Pack] Level 3.wav"
+dest_files=[ "res://.import/Juhani Junkala [Retro Game Music Pack] Level 3.wav-138f7de35e95b2275ab4c10a52e3308b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

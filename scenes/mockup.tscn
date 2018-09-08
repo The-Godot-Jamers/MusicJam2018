@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/mockup.gd" type="Script" id=1]
+[ext_resource path="res://scenes/mainship.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/musicship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://space_environment.tres" type="Environment" id=4]
+[ext_resource path="res://scenes/Camera.gd" type="Script" id=5]
+[ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=7]
+
+[node name="mockup" type="Spatial" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="mainship" parent="." index="0" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.31525 )
+
+[node name="engineparticles" parent="mainship" index="2"]
+
+emitting = true
+
+[node name="engineparticles2" parent="mainship" index="3"]
+
+visible = false
+emitting = true
+
+[node name="engineparticles3" parent="mainship" index="4"]
+
+emitting = true
+
+[node name="engineparticles4" parent="mainship" index="5"]
+
+transform = Transform( -0.5, 0, -4.37114e-008, 0, 0.5, 0, 4.37114e-008, 0, -0.5, 0.595226, -1.3641, -0.305366 )
+emitting = true
+
+[node name="musicship" parent="." index="1" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.8133 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="engineparticles" parent="musicship" index="0"]
+
+emitting = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
+
+environment = ExtResource( 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
+
+transform = Transform( 0.968962, -0.0993856, -0.226351, 0, -0.915626, 0.40203, -0.247209, -0.389552, -0.887207, 0, 7.43393, 0 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.1
+directional_shadow_split_2 = 0.2
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = false
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 0
+directional_shadow_max_distance = 200.0
+
+[node name="Camera" type="Camera" parent="." index="4"]
+
+transform = Transform( -0.999175, 0, 0.0406215, 0, 1, 0, -0.0406215, 0, -0.999175, 0, 8, -15 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = true
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroid_timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = true
+
+[node name="visualiser" parent="." index="6" instance=ExtResource( 6 )]
+
+margin_left = -285.0
+margin_top = -166.0
+margin_right = -285.0
+margin_bottom = -166.0
+
+[node name="music" parent="." index="7" instance=ExtResource( 7 )]
+
+[node name="lanes" type="ImmediateGeometry" parent="." index="8"]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+
+[connection signal="timeout" from="asteroid_timer" to="." method="_on_asteroid_timer_timeout"]
+
+
+[editable path="mainship"]
+[editable path="musicship"]
