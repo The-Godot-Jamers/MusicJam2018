@@ -6,7 +6,7 @@ var camera1
 var camera2
 var camera3
 var mainship
-
+var current_camera
 
 var songs
 
@@ -38,12 +38,14 @@ func _input(event):
 		else:
 			menu.show()
 			get_tree().paused = true
-
-#	if lvl != 0:
-#		if Input.is_action_just_pressed("1"):
-#			camera1.current = true
-#		if Input.is_action_just_pressed("2"):
-#			camera2.current = true
+#
+	if lvl != 0:
+		if Input.is_action_just_pressed("1"):
+			camera1.current = true
+			current_camera = camera1
+		if Input.is_action_just_pressed("2"):
+			camera2.current = true
+			current_camera = camera2
 #		if Input.is_action_just_pressed("3"):
 #			camera3.current = true
 

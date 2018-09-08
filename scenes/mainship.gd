@@ -39,13 +39,14 @@ func shoot():
 	im.end()
 	if $RayCast.is_colliding():
 		var hit = $RayCast.get_collider()
-		hit.take_hit()
+		var bus = AudioServer.get_bus_index("Master")
+		hit.take_hit(abs((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 5)
 
 func _on_move_tween_tween_completed(object, key):
 	can_move = true
 	$lane_timer.start()
 
-func take_hit():
+func take_hit(amt):
 	Globals.camera1.start_shake()
 	$hit_effect.parts.emitting = true
 	hitpoints -= 1

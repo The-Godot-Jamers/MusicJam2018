@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/mockup.gd" type="Script" id=1]
 [ext_resource path="res://scenes/mainship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/musicship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://space_environment.tres" type="Environment" id=4]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=5]
-[ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Camera2.gd" type="Script" id=6]
+[ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=8]
 
 [node name="mockup" type="Spatial"]
 
@@ -98,23 +99,57 @@ wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="asteroid_timer" type="Timer" parent="." index="5"]
+[node name="camera_tween" type="Tween" parent="Camera" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Camera2" type="Camera" parent="." index="5"]
+
+transform = Transform( -4.26233e-008, -0.221739, 0.975106, -9.6925e-009, 0.975106, 0.221739, -1, 0, -4.37114e-008, 8.73886, 5.16135, 7.92768 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="shake_timer" type="Timer" parent="Camera2" index="0"]
 
 process_mode = 1
 wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="asteroid_timer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 0.7
 one_shot = false
 autostart = true
 
-[node name="visualiser" parent="." index="6" instance=ExtResource( 6 )]
+[node name="visualiser" parent="." index="7" instance=ExtResource( 7 )]
 
 margin_left = -285.0
 margin_top = -166.0
 margin_right = -285.0
 margin_bottom = -166.0
 
-[node name="music" parent="." index="7" instance=ExtResource( 7 )]
+[node name="music" parent="." index="8" instance=ExtResource( 8 )]
 
-[node name="lanes" type="ImmediateGeometry" parent="." index="8"]
+[node name="lanes" type="ImmediateGeometry" parent="." index="9"]
 
 layers = 1
 material_override = null
@@ -127,6 +162,8 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 
 [connection signal="timeout" from="Camera/shake_timer" to="Camera" method="_on_shake_timer_timeout"]
+
+[connection signal="timeout" from="Camera2/shake_timer" to="Camera2" method="_on_shake_timer_timeout"]
 
 [connection signal="timeout" from="asteroid_timer" to="." method="_on_asteroid_timer_timeout"]
 

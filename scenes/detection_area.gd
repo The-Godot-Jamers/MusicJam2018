@@ -1,4 +1,4 @@
 extends Area
 
-func take_hit():
+func take_hit(amt):
 	pass

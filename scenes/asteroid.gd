@@ -13,4 +13,4 @@ func _on_asteroid_body_entered(body):
 
 
 func _on_asteroid_area_entered(area):
-	area.take_hit()
+	area.take_hit(1)
