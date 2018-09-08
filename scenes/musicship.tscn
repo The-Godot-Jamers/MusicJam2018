@@ -296,7 +296,7 @@ tracks/1/keys = {
 "values": [ Vector3( -90, 0, 0 ), Vector3( -75, -90, 90 ), Vector3( -90, 0, 0 ) ]
 }
 
-[node name="musicship" type="Area" index="0"]
+[node name="musicship" type="Area"]
 
 input_ray_pickable = false
 input_capture_on_drag = false

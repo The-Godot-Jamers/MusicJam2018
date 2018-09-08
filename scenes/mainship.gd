@@ -33,16 +33,20 @@ func _input(event):
 	else:
 		im.clear() #clear the laser if not shooting
 
+func _physics_process(delta):
+	if $shooting_ray.is_colliding():
+		var hit = $shooting_ray.get_collider()
+		var bus = AudioServer.get_bus_index("Master")
+		hit.take_hit(abs((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 5)
+
+
 func shoot():
 	im.set_material_override(m)
 	im.begin(Mesh.PRIMITIVE_LINES)
 	im.add_vertex(begin)
 	im.add_vertex(end)
 	im.end()
-	if $RayCast.is_colliding():
-		var hit = $RayCast.get_collider()
-		var bus = AudioServer.get_bus_index("Master")
-		hit.take_hit(abs((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 5)
+	$shooting_ray.enabled = true
 
 func _on_move_tween_tween_completed(object, key):
 	can_move = true
