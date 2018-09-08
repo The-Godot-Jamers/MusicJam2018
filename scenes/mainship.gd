@@ -1,4 +1,4 @@
-extends KinematicBody
+extends Area
 
 var speed = 20
 var rot_speed = 40
@@ -11,8 +11,8 @@ var end = Vector3(0,0,15)
 var m = SpatialMaterial.new()
 var target = Vector3()
 onready var im = get_node("draw") #ImmediateGeometry
-var lane_move = 0.30
-var move_speed = 0.3
+var lane_move = 5
+var move_speed = 0.6
 var can_move = true
 
 func _ready():
@@ -23,16 +23,21 @@ func _ready():
 	m.albedo_color = Color(1.0, 0.0, 0.0, 1.0)
 
 func _input(event):
+	print(can_move)
 	if Input.is_action_just_pressed("left") && can_move:
-		$move_tween.interpolate_method(self, "move", Vector3(0.0, 0.0, 0.0),Vector3(lane_move, 0.0, 0.0),move_speed,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		#$move_tween.interpolate_method(self, "move", Vector3(0.0, 0.0, 0.0),Vector3(lane_move, 0.0, 0.0),move_speed,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(lane_move,0.0,0.0),move_speed,Tween.TRANS_ELASTIC,Tween.EASE_IN_OUT)
 		$move_tween.start()
+		can_move = false
 	if Input.is_action_just_pressed("right") && can_move:
-		$move_tween.interpolate_method(self, "move", Vector3(0.0, 0.0, 0.0),Vector3(-lane_move, 0.0, 0.0),move_speed,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		#$move_tween.interpolate_method(self, "move", Vector3(0.0, 0.0, 0.0),Vector3(-lane_move, 0.0, 0.0),move_speed,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(-lane_move,0.0,0.0),move_speed,Tween.TRANS_ELASTIC,Tween.EASE_IN_OUT)
 		$move_tween.start()
+		can_move = false
 
-func move(trans):
-	can_move = false
-	move_and_collide(trans)
+#func move(trans):
+#	can_move = false
+#	move_and_collide(trans)
 
 
 func shoot():
