@@ -76,7 +76,7 @@ directional_shadow_max_distance = 200.0
 
 [node name="Camera" type="Camera" parent="." index="4"]
 
-transform = Transform( -0.999175, 0, 0.0406215, 0, 1, 0, -0.0406215, 0, -0.999175, 0, 8, -15 )
+transform = Transform( -0.999175, 0, 0.0406215, 0, 1, 0, -0.0406215, 0, -0.999175, 0, 8, -20 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null

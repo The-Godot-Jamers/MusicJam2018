@@ -24,11 +24,11 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_just_pressed("left") && can_move:
-		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(lane_move,0.0,0.0),move_speed,Tween.TRANS_ELASTIC,Tween.EASE_IN_OUT)
+		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(lane_move,0.0,0.0),move_speed,Tween.TRANS_EXPO,Tween.EASE_IN_OUT)
 		$move_tween.start()
 		can_move = false
 	if Input.is_action_just_pressed("right") && can_move:
-		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(-lane_move,0.0,0.0),move_speed,Tween.TRANS_ELASTIC,Tween.EASE_IN_OUT)
+		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(-lane_move,0.0,0.0),move_speed,Tween.TRANS_EXPO,Tween.EASE_IN_OUT)
 		$move_tween.start()
 		can_move = false
 	
