@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MadHouse.wav-c9b88dc814b90bda79b9c54b4725164f.sample"
+
+[deps]
+
+source_file="res://music/MadHouse.wav"
+dest_files=[ "res://.import/MadHouse.wav-c9b88dc814b90bda79b9c54b4725164f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
