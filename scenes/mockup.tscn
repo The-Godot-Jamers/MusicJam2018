@@ -92,6 +92,13 @@ far = 100.0
 script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="shake_timer" type="Timer" parent="Camera" index="0"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
 [node name="asteroid_timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
@@ -119,6 +126,8 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
+
+[connection signal="timeout" from="Camera/shake_timer" to="Camera" method="_on_shake_timer_timeout"]
 
 [connection signal="timeout" from="asteroid_timer" to="." method="_on_asteroid_timer_timeout"]
 

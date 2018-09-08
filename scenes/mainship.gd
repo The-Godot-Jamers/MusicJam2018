@@ -1,6 +1,6 @@
 extends Area
 
-
+var hitpoints = 3
 var begin = Vector3(0.0,0,0)
 var end = Vector3(0,0,15)
 var m = SpatialMaterial.new()
@@ -43,7 +43,11 @@ func _on_move_tween_tween_completed(object, key):
 	$lane_timer.start()
 
 func take_hit():
+	Globals.camera1.start_shake()
 	$hit_effect.parts.emitting = true
+	hitpoints -= 1
+	if hitpoints == 0:
+		get_tree().quit()
 
 func _on_lane_timer_timeout():
 	get_parent().create_lanes()

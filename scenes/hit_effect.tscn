@@ -101,7 +101,7 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[node name="hit_effect" type="Spatial" index="0"]
+[node name="hit_effect" type="Spatial"]
 
 script = ExtResource( 1 )
 
