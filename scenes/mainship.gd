@@ -31,6 +31,7 @@ func _input(event):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 	else:
+		$shooting_ray.enabled = false
 		im.clear() #clear the laser if not shooting
 
 func _physics_process(delta):

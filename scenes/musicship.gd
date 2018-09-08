@@ -3,7 +3,8 @@ extends Area
 onready var main = get_parent().get_node("mainship")
 var fixed_trans = Vector3()
 
-var hitpoints = 1000
+var maxhitpoints = 1000
+var hitpoints 
 var lane_move = 5
 var move_speed = 0.6
 var can_move = true
@@ -11,12 +12,15 @@ var movex
 
 func _ready():
 	fixed_trans = translation
+	hitpoints = maxhitpoints
 
 func take_hit(amt):
 	$enemy_hit_effect/Particles.emitting = true
 	hitpoints -= amt
-	print("hits ", str(amt))
-	print("hitpoints left ", hitpoints)
+	$shield.show()
+	var color_mod = amt / maxhitpoints
+	$shield.get_surface_material(0).albedo_color += Color(color_mod,-color_mod,0,-0.00005)
+	$shield/shield_timer.start()
 	if hitpoints <= 0:
 		queue_free()
 
@@ -48,3 +52,9 @@ func start_move():
 
 func _on_move_tween_tween_completed(object, key):
 	can_move = true
+
+func _on_shield_timer_timeout():
+	$shield.hide()
+
+
+

@@ -29,6 +29,13 @@ func create_lanes():
 		im.add_vertex(Vector3($mainship.translation.x, 0.0, 0.0) + Vector3(lane_offset + (-z * lane_spacing),0.0,100.0))
 		im.end()
 
+func create_asteroid(position):
+	var aster = asteroid.instance()
+	aster.translation = Vector3()
+	aster.translation.z = 150
+	aster.translation.x = $mainship.translation.x + (5 * position)
+	add_child(aster)
+
 func _on_asteroid_timer_timeout():
 	var aster = asteroid.instance()
 	aster.translation = Vector3()
