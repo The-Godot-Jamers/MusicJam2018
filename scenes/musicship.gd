@@ -15,10 +15,15 @@ func take_hit():
 	pass
 
 func _physics_process(delta):
-	if randf() > 0.5:
+	if $left_area.get_overlapping_areas().size() > 0:
+		movex = -lane_move
+	elif $right_area.get_overlapping_areas().size() > 0:
 		movex = lane_move
 	else:
-		movex = -lane_move
+		if randf() > 0.5:
+			movex = lane_move
+		else:
+			movex = -lane_move
 	if $back_area.get_overlapping_areas().size() > 0 && can_move:
 		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(movex,0.0,0.0),move_speed,Tween.TRANS_EXPO,Tween.EASE_IN_OUT)
 		start_move()

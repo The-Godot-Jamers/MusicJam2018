@@ -26,14 +26,22 @@ func _process(delta):
 	var bus
 	bus = AudioServer.get_bus_index("1")
 	$center/hbox/v1.value = (AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2
+	$hbox/l1.text = str((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2)
 	bus = AudioServer.get_bus_index("2")
 	$center/hbox/v2.value = (AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2
+	$hbox/l2.text = str((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2)	
 	bus = AudioServer.get_bus_index("3")
 	$center/hbox/v3.value = (AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2
+	$hbox/l3.text = str((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2)
 	bus = AudioServer.get_bus_index("4")
 	$center/hbox/v4.value = (AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2
+	$hbox/l4.text = str((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2)
 	bus = AudioServer.get_bus_index("5")
 	$center/hbox/v5.value = (AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2
+	$hbox/l5.text = str((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2)
 	bus = AudioServer.get_bus_index("6")
 	$center/hbox/v6.value = (AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2
-	#print($center/hbox/v1.value, " ",$center/hbox/v2.value, " ",$center/hbox/v3.value, " ",$center/hbox/v4.value, " ",$center/hbox/v5.value, " ",$center/hbox/v6.value)
+	$hbox/l6.text = str((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2)
+	bus = AudioServer.get_bus_index("Master")
+	$total_db.text = str((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2)
+	
