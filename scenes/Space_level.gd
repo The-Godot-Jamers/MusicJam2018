@@ -34,7 +34,6 @@ func create_asteroid(pos):
 	aster.translation = Vector3()
 	aster.translation.z = 150
 	aster.translation.x = (round($mainship.translation.x/5) * 5) + (lane_spacing * pos)
-	print(aster.translation)
 	add_child(aster)
 
 func _on_asteroid_timer_timeout():

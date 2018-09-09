@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://music/Godotbiisi.wav" type="AudioStream" id=1]
+[ext_resource path="res://music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav" type="AudioStream" id=1]
 [ext_resource path="res://scenes/music.gd" type="Script" id=2]
 
 [node name="music" type="AudioStreamPlayer"]
