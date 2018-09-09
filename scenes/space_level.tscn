@@ -161,11 +161,20 @@ lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 
+[node name="shooting_star_timer" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = true
+
 [connection signal="timeout" from="Camera/shake_timer" to="Camera" method="_on_shake_timer_timeout"]
 
 [connection signal="timeout" from="Camera2/shake_timer" to="Camera2" method="_on_shake_timer_timeout"]
 
 [connection signal="timeout" from="asteroid_timer" to="." method="_on_asteroid_timer_timeout"]
+
+[connection signal="timeout" from="shooting_star_timer" to="." method="_on_shooting_star_timer_timeout"]
 
 
 [editable path="mainship"]

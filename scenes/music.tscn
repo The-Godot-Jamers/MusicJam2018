@@ -3,7 +3,7 @@
 [ext_resource path="res://music/Godotbiisi.wav" type="AudioStream" id=1]
 [ext_resource path="res://scenes/music.gd" type="Script" id=2]
 
-[node name="music" type="AudioStreamPlayer" index="0"]
+[node name="music" type="AudioStreamPlayer"]
 
 stream = ExtResource( 1 )
 volume_db = -50.0

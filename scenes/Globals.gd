@@ -12,6 +12,7 @@ var songs
 var extra_songs
 
 func _ready():
+	randomize()
 	songs = list_basic_music("res://music/")
 	#not yet working properly
 #	extra_songs = list_extra_music(ProjectSettings.globalize_path("res://extra_music"))

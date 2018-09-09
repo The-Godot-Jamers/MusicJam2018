@@ -3,6 +3,7 @@ extends Spatial
 var lane_offset = 2.5
 var lane_spacing = 5.0
 var asteroid = preload("res://scenes/asteroid.tscn")
+var shooting_star = preload("res://scenes/shooting_star.tscn")
 var m = SpatialMaterial.new()
 onready var im = get_node("lanes") #ImmediateGeometry
 
@@ -36,9 +37,19 @@ func create_asteroid(pos):
 	aster.translation.x = (round($mainship.translation.x/5) * 5) + (lane_spacing * pos)
 	add_child(aster)
 
+func create_shooting_star(posx,posy):
+	var star = shooting_star.instance()
+	star.translation = Vector3()
+	star.translation.z = 150
+	star.translation.x = $mainship.translation.x + (posx * lane_spacing)
+	star.translation.y = posy + 5
+	add_child(star)
 func _on_asteroid_timer_timeout():
 	create_asteroid(round(rand_range(-10,10)))
 
+func _on_shooting_star_timer_timeout():
+	create_shooting_star(round(rand_range(-10,10)),round(rand_range(0,8)))
+	
 func player_dead():
 	get_tree().change_scene_to(load("res://scenes/splash.tscn"))
 	Globals.lvl = 0
@@ -46,3 +57,4 @@ func player_dead():
 
 func enemy_killed():
 	pass
+
