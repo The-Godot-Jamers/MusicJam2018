@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/music.tscn" type="PackedScene" id=8]
 
-[node name="space_level" type="Spatial"]
+[node name="space_level" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -136,7 +136,7 @@ autostart = false
 [node name="asteroid_timer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 0.7
+wait_time = 0.3
 one_shot = false
 autostart = true
 
