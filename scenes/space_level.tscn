@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/mockup.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Space_level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/mainship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/musicship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://space_environment.tres" type="Environment" id=4]
@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/music.tscn" type="PackedScene" id=8]
 
-[node name="mockup" type="Spatial"]
+[node name="space_level" type="Spatial"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

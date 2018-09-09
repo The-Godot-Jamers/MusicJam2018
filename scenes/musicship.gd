@@ -3,7 +3,7 @@ extends Area
 onready var main = get_parent().get_node("mainship")
 var fixed_trans = Vector3()
 
-var maxhitpoints = 1000
+var maxhitpoints = 10000
 var hitpoints 
 var lane_move = 5
 var move_speed = 0.6
@@ -22,7 +22,7 @@ func take_hit(amt):
 	$shield.get_surface_material(0).albedo_color += Color(color_mod,-color_mod,0,-0.00005)
 	$shield/shield_timer.start()
 	if hitpoints <= 0:
-		queue_free()
+		visible = false
 
 func _physics_process(delta):
 	if $left_area.get_overlapping_areas().size() > 0:
