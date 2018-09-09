@@ -63,7 +63,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Metallic", "Roughness" ]
 
-[node name="shooting_star" type="Spatial" index="0"]
+[node name="shooting_star" type="Spatial"]
 
 script = ExtResource( 1 )
 speed = 1

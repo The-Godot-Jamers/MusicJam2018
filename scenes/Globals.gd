@@ -1,6 +1,6 @@
 extends Node
 
-var lvl = 0 setget _set_lvl, _get_lvl
+var lvl = 0 
 var lvl1 = preload("res://scenes/space_level.tscn")
 var camera1
 var camera2
