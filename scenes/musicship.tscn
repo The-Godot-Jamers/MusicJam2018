@@ -186,7 +186,7 @@ points = PoolVector3Array( -0.134766, -0.282715, 0.316162, -0.114868, -0.503906,
 
 [sub_resource type="BoxShape" id=3]
 
-extents = Vector3( 1, 1, 10 )
+extents = Vector3( 1, 1, 12 )
 
 [sub_resource type="ParticlesMaterial" id=4]
 
@@ -357,7 +357,7 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Flags", "Metallic" ]
 
-[node name="musicship" type="Area"]
+[node name="musicship" type="Area" index="0"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -426,7 +426,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="center_area" type="Area" parent="." index="3"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -458,7 +458,7 @@ disabled = false
 
 [node name="back_area" type="Area" parent="." index="4"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -490,7 +490,7 @@ disabled = false
 
 [node name="left_area" type="Area" parent="." index="5"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -522,7 +522,7 @@ disabled = false
 
 [node name="right_area" type="Area" parent="." index="6"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 10 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0

@@ -20,7 +20,6 @@ func _physics_process(delta):
 
 func _process(delta):
 	#music scaling
-	print(mat.albedo_color)
 	var bus = AudioServer.get_bus_index("Master")
 	var scale_mod = abs(((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 50)
 	scale_mod = 1 - scale_mod
@@ -36,7 +35,6 @@ func _process(delta):
 	bus = AudioServer.get_bus_index("6")
 	scale_mod = abs(((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 100)
 	mat.albedo_color.b = scale_mod
-	print(mat.albedo_color)
 
 func _on_asteroid_body_entered(body):
 	body.take_hit()
