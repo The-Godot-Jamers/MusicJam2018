@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/music.tscn" type="PackedScene" id=8]
 
-[node name="space_level" type="Spatial"]
+[node name="space_level" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -32,7 +32,7 @@ emitting = true
 
 [node name="engineparticles4" parent="mainship" index="5"]
 
-transform = Transform( -0.5, 0, -4.37114e-008, 0, 0.5, 0, 4.37114e-008, 0, -0.5, 0.595226, -1.3641, -0.305366 )
+transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0.595226, -1.3641, -0.305366 )
 emitting = true
 
 [node name="musicship" parent="." index="1" instance=ExtResource( 3 )]
@@ -110,7 +110,7 @@ playback/speed = 1.0
 
 [node name="Camera2" type="Camera" parent="." index="5"]
 
-transform = Transform( -4.26233e-008, -0.221739, 0.975106, -9.6925e-009, 0.975106, 0.221739, -1, 0, -4.37114e-008, 8.73886, 5.16135, 7.92768 )
+transform = Transform( -4.26233e-08, -0.221739, 0.975106, -9.6925e-09, 0.975106, 0.221739, -1, 0, -4.37114e-08, 8.73886, 5.16135, 7.92768 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null

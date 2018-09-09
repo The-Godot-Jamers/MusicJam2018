@@ -65,5 +65,4 @@ ren_forward=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"reso
 [rendering]
 
 quality/subsurface_scattering/quality=2
-quality/filters/msaa=4
 environment/default_environment="res://default_env.tres"

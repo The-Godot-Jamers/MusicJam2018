@@ -1,6 +1,6 @@
 extends Node
 
-var lvl = 0
+var lvl = 0 setget _set_lvl, _get_lvl
 var lvl1 = preload("res://scenes/space_level.tscn")
 var camera1
 var camera2
@@ -12,6 +12,7 @@ var songs
 var extra_songs
 
 func _ready():
+	Ren.define("lvl", 0)
 	randomize()
 	songs = list_basic_music("res://music/")
 	#not yet working properly
@@ -80,5 +81,9 @@ func _input(event):
 #		if Input.is_action_just_pressed("3"):
 #			camera3.current = true
 
+func _set_lvl(value):
+	Ren.define("lvl", 0)
 
+func _get_lvl():
+	Ren.get_value("lvl")
 
