@@ -87,5 +87,7 @@ func _set_lvl(value):
 	Ren.define("lvl", value)
 
 func _get_lvl():
+	if Ren.get_value("lvl") != null:
+		_lvl = Ren.get_value("lvl")
 	return _lvl
 
