@@ -13,6 +13,7 @@ var movex
 func _ready():
 	fixed_trans = translation
 	hitpoints = maxhitpoints
+	$shield.get_surface_material(0).albedo_color = Color("0a00ff00")
 
 func take_hit(amt):
 	$enemy_hit_effect/Particles.emitting = true
