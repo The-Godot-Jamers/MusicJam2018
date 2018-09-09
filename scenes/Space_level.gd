@@ -38,3 +38,10 @@ func create_asteroid(pos):
 
 func _on_asteroid_timer_timeout():
 	create_asteroid(round(rand_range(-10,10)))
+
+func player_dead():
+	get_tree().change_scene_to(load("res://scenes/splash.tscn"))
+	Globals.lvl = 0
+	menu.menu_reset()
+	
+	

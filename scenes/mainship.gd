@@ -58,7 +58,7 @@ func take_hit(amt):
 	$hit_effect.parts.emitting = true
 	hitpoints -= 1
 	if hitpoints == 0:
-		get_tree().quit()
+		get_parent().player_dead()
 
 func _on_lane_timer_timeout():
 	get_parent().create_lanes()

@@ -5,6 +5,11 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_accept") && visible:
 		_on_start_pressed()
 
+func menu_reset():
+	$center/vbox/start/center/Label.text = "Start"
+	$menubg.show()
+	show()
+
 func _on_start_pressed():
 	if Globals.lvl == 0:
 		Globals.lvl = 1
