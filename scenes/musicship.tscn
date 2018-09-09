@@ -4,19 +4,175 @@
 [ext_resource path="res://scenes/engineparticles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ships/musicship/glass (Instance) (Instance) (Instance).material" type="Material" id=3]
 [ext_resource path="res://ships/musicship/blueSteel (Instance) (Instance) (Instance) (Instance).material" type="Material" id=4]
-[ext_resource path="res://ships/musicship/blueSteel (Instance) (Instance).material" type="Material" id=5]
-[ext_resource path="res://ships/musicship/black (Instance) (Instance).material" type="Material" id=6]
-[ext_resource path="res://ships/musicship/_defaultMat (Instance) (Instance).material" type="Material" id=7]
-[ext_resource path="res://ships/musicship/engine (Instance) (Instance) (Instance).material" type="Material" id=8]
-[ext_resource path="res://ships/musicship/_defaultMat (Instance) (Instance) (Instance) (Instance).material" type="Material" id=9]
-[ext_resource path="res://ships/musicship/_defaultMat (Instance) (Instance) (Instance).material" type="Material" id=10]
-[ext_resource path="res://ships/musicship/blueSteel (Instance) (Instance) (Instance).material" type="Material" id=11]
-[ext_resource path="res://ships/musicship/black (Instance) (Instance) (Instance).material" type="Material" id=12]
-[ext_resource path="res://ships/musicship/engine (Instance) (Instance).material" type="Material" id=13]
-[ext_resource path="res://ships/musicship/glass (Instance).material" type="Material" id=14]
-[ext_resource path="res://ships/musicship/glass (Instance) (Instance).material" type="Material" id=15]
-[ext_resource path="res://scenes/detection_area.gd" type="Script" id=16]
-[ext_resource path="res://ships/musicship/ship_hit.material" type="Material" id=17]
+[ext_resource path="res://ships/musicship/black (Instance) (Instance).material" type="Material" id=5]
+[ext_resource path="res://ships/musicship/_defaultMat (Instance) (Instance).material" type="Material" id=6]
+[ext_resource path="res://ships/musicship/engine (Instance) (Instance) (Instance).material" type="Material" id=7]
+[ext_resource path="res://ships/musicship/_defaultMat (Instance) (Instance) (Instance) (Instance).material" type="Material" id=8]
+[ext_resource path="res://ships/musicship/_defaultMat (Instance) (Instance) (Instance).material" type="Material" id=9]
+[ext_resource path="res://ships/musicship/black (Instance) (Instance) (Instance).material" type="Material" id=10]
+[ext_resource path="res://ships/musicship/glass (Instance).material" type="Material" id=11]
+[ext_resource path="res://ships/musicship/glass (Instance) (Instance).material" type="Material" id=12]
+[ext_resource path="res://scenes/detection_area.gd" type="Script" id=13]
+[ext_resource path="res://ships/musicship/ship_hit.material" type="Material" id=14]
+
+[sub_resource type="SpatialMaterial" id=12]
+
+resource_name = "blueSteel (Instance) (Instance) (Instance) (Instance)"
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.851114, 0.180859, 0.259404, 1 )
+metallic = 1.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.6
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Metallic", "Roughness" ]
+
+[sub_resource type="SpatialMaterial" id=13]
+
+resource_name = "blueSteel (Instance) (Instance) (Instance) (Instance)"
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.851114, 0.180859, 0.259404, 1 )
+metallic = 1.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.6
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Metallic", "Roughness" ]
+
+[sub_resource type="SpatialMaterial" id=14]
+
+resource_name = "engine (Instance) (Instance) (Instance)"
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 0.79666, 0.707556, 1 )
+metallic = 0.3
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.5
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Metallic", "Roughness" ]
 
 [sub_resource type="ArrayMesh" id=1]
 
@@ -54,7 +210,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 18,
-"material": ExtResource( 8 ),
+"material": ExtResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 8
@@ -66,7 +222,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 150,
-"material": ExtResource( 9 ),
+"material": ExtResource( 8 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 105
@@ -78,7 +234,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 762,
-"material": ExtResource( 10 ),
+"material": ExtResource( 9 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 609
@@ -90,7 +246,7 @@ surfaces/5 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 252,
-"material": ExtResource( 11 ),
+"material": SubResource( 13 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 146
@@ -102,7 +258,7 @@ surfaces/6 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 60,
-"material": ExtResource( 12 ),
+"material": ExtResource( 10 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 36
@@ -114,7 +270,7 @@ surfaces/7 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 48,
-"material": ExtResource( 13 ),
+"material": SubResource( 14 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 26
@@ -126,7 +282,7 @@ surfaces/8 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 30,
-"material": ExtResource( 14 ),
+"material": ExtResource( 11 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 20
@@ -138,7 +294,7 @@ surfaces/9 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 30,
-"material": ExtResource( 15 ),
+"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 20
@@ -150,7 +306,7 @@ surfaces/10 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 1014,
-"material": ExtResource( 5 ),
+"material": SubResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 626
@@ -162,7 +318,7 @@ surfaces/11 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 492,
-"material": ExtResource( 6 ),
+"material": ExtResource( 5 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 308
@@ -174,7 +330,7 @@ surfaces/12 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 1308,
-"material": ExtResource( 7 ),
+"material": ExtResource( 6 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 968
@@ -227,7 +383,7 @@ _sections_unfolded = [ "Gravity", "Initial Velocity", "Spread" ]
 
 [sub_resource type="CapsuleMesh" id=6]
 
-material = ExtResource( 17 )
+material = ExtResource( 14 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 radius = 0.1
 mid_height = 0.1
@@ -447,7 +603,7 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-script = ExtResource( 16 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="center_area" index="0"]
@@ -479,7 +635,7 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-script = ExtResource( 16 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="back_area" index="0"]
@@ -511,7 +667,7 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-script = ExtResource( 16 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="left_area" index="0"]
@@ -543,7 +699,7 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
-script = ExtResource( 16 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="right_area" index="0"]

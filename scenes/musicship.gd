@@ -23,6 +23,7 @@ func take_hit(amt):
 	$shield/shield_timer.start()
 	if hitpoints <= 0:
 		visible = false
+		get_parent().enemy_killed()
 
 func _physics_process(delta):
 	if $left_area.get_overlapping_areas().size() > 0:

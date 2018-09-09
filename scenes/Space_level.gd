@@ -43,5 +43,6 @@ func player_dead():
 	get_tree().change_scene_to(load("res://scenes/splash.tscn"))
 	Globals.lvl = 0
 	menu.menu_reset()
-	
-	
+
+func enemy_killed():
+	pass
