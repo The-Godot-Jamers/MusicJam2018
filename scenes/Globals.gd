@@ -1,6 +1,7 @@
 extends Node
 
 var lvl = 0 setget _set_lvl, _get_lvl
+var _lvl
 var lvl1 = preload("res://scenes/space_level.tscn")
 var camera1
 var camera2
@@ -82,8 +83,9 @@ func _input(event):
 #			camera3.current = true
 
 func _set_lvl(value):
-	Ren.define("lvl", 0)
+	_lvl = value
+	Ren.define("lvl", value)
 
 func _get_lvl():
-	Ren.get_value("lvl")
+	return _lvl
 
