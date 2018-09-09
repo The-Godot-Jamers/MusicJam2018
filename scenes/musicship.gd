@@ -19,7 +19,7 @@ func take_hit(amt):
 	hitpoints -= amt
 	$shield.show()
 	var color_mod = amt / maxhitpoints
-	$shield.get_surface_material(0).albedo_color += Color(color_mod,-color_mod,0,-0.00005)
+	$shield.get_surface_material(0).albedo_color += Color(color_mod,-color_mod,0,-0.000005)
 	$shield/shield_timer.start()
 	if hitpoints <= 0:
 		visible = false
