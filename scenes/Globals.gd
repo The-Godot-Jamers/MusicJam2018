@@ -9,17 +9,23 @@ var mainship
 var current_camera
 
 var songs
+var extra_songs
 
 func _ready():
-	songs = list_files_in_directory("res://music/")
-	
+	songs = list_basic_music("res://music/")
+	#not yet working properly
+#	extra_songs = list_extra_music(ProjectSettings.globalize_path("res://extra_music"))
+#	if extra_songs.size() > 0:
+#		for i in extra_songs:
+#			print("add song ", extra_songs[i])
+#			songs.append(extra_songs[i])
+#	print(songs)
 
-func list_files_in_directory(path):
+func list_basic_music(path):
 	var files = []
 	var dir = Directory.new()
 	dir.open(path)
 	dir.list_dir_begin()
-
 	while true:
 		var file = dir.get_next()
 		if file == "":
@@ -30,6 +36,30 @@ func list_files_in_directory(path):
 	dir.list_dir_end()
 	return files
 
+#not yet working
+#func list_extra_music(path):
+#	var music = []
+#	var dir = Directory.new()
+#	dir.open(path)
+#	dir.list_dir_begin()
+#	print("path ", path)
+#	while true:
+#		var file = dir.get_next()
+#		if file == "":
+#			break
+#		elif not file.begins_with(".") and (file.ends_with(".ogg")):
+#			var song = File.new()
+#			song.open(file, File.READ)
+#			print("file ", file)
+#			print("song ", song)
+#			var bytes = song.get_buffer(song.get_len())
+#			print("bytes ", bytes)
+#			var stream = AudioStreamOGGVorbis.new()
+#			stream.data = bytes
+#			music.append(stream)
+#			song.close()
+#	dir.list_dir_end()
+#	return music
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):

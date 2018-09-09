@@ -15,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	if shake:
-		shake_offset = Vector3(rand_range(-3, 3), rand_range(-3, 3), rand_range(-3, 3))
+		shake_offset = Vector3(rand_range(-5, 5), rand_range(-5, 5), rand_range(-5, 5))
 	$camera_tween.interpolate_property(self, "translation", translation, get_parent().get_node("mainship").translation + offset + shake_offset, 0.3, Tween.TRANS_SINE, Tween.EASE_OUT)
 	$camera_tween.start()
 	

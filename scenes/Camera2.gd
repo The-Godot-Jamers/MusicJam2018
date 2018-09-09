@@ -10,7 +10,7 @@ func _ready():
 
 func _process(delta):
 	if shake:
-		shake_offset = Vector3(rand_range(-3, 3), rand_range(-3, 3), rand_range(-3, 3))
+		shake_offset = Vector3(rand_range(-5, 5), rand_range(-5, 5), rand_range(-5, 5))
 	
 	translation = get_parent().get_node("mainship").translation + offset + shake_offset
 
