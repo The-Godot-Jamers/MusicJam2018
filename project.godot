@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 menu="*res://scenes/menu.tscn"
 Globals="*res://scenes/Globals.tscn"
 Ren="*res://addons/Ren/Ren.tscn"
+Window="*res://scenes/gui/Window.tscn"
 
 [editor_plugins]
 
