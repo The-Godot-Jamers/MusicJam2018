@@ -21,7 +21,7 @@ render_priority = 0
 shader = SubResource( 1 )
 shader_param/mouse_pos = null
 
-[node name="splash" type="Sprite" index="0"]
+[node name="splash" type="Sprite"]
 
 material = SubResource( 2 )
 position = Vector2( 512, 150 )

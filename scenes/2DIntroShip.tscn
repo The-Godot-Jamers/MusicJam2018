@@ -1,23 +1,30 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Characters/IntroShip.png" type="Texture" id=1]
-[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gfx/space.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gfx/space.png" type="Texture" id=2]
+[ext_resource path="res://Characters/IntroShip.png" type="Texture" id=3]
 
-[node name="2DIntroShip" type="Node2D"]
+[node name="2DIntroShip" type="StaticBody2D" index="0"]
 
-[node name="IntroShip" type="Sprite" parent="." index="0"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
-position = Vector2( 8687.21, 4047.49 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
-[node name="Character" parent="." index="1" instance=ExtResource( 2 )]
+position = Vector2( 9770, 3863.41 )
+scale = Vector2( 1, 0.65625 )
+build_mode = 1
+polygon = PoolVector2Array( -2625, -303.869, -916, -303.869, -916, -431.869, -1290, -431.869, -1290, -889.012, -340, -889.012, -341, -430.345, -659, -430.345, -658, -305.393, 267, -305.393, 267, 532.702, -667, 531.178, -667, 663.75, -330, 665.273, -330, 1122.42, -1277, 1122.42, -1277, 663.75, -921, 663.75, -921, 532.702, -2624, 532.702 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
-position = Vector2( 8912.5, 3548.01 )
+[node name="Character" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 8895, 3495 )
 
 [node name="Camera2D" type="Camera2D" parent="Character" index="5"]
 
@@ -51,10 +58,18 @@ editor_draw_drag_margin = false
 position = Vector2( 8724.82, 4314.04 )
 scale = Vector2( 0.462398, 0.635772 )
 z_index = -2
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Z Index" ]
 __meta__ = {
 "_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="IntroShip" type="Sprite" parent="." index="3"]
+
+position = Vector2( 8610, 3940 )
+texture = ExtResource( 3 )
+__meta__ = {
 "_edit_lock_": true
 }
 
