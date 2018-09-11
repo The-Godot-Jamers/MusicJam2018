@@ -8,6 +8,7 @@ var camera2
 var camera3
 var mainship
 var current_camera
+var warranty_color = Color()
 
 var songs
 var extra_songs
