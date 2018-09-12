@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://themes/new_gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://themes/rpgm_like/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/gui/InGameGUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/gui/Screens.tscn" type="PackedScene" id=3]
 

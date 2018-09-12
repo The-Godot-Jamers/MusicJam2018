@@ -17,7 +17,7 @@ func _process(delta):
 	if not is_in_area:
 		return
 
-	if not Input.action_press("ren_forward"):
+	if not Input.action_press("ui_accept"):
 		return
 	
 	if closed:

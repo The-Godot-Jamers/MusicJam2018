@@ -33,7 +33,7 @@ func _on_time_active_timeout():
 	active = true
 
 func _input(event):
-	if not event.is_action_pressed("ren_forward"):
+	if not event.is_action_pressed("ui_accept"):
 		return
 	
 	if ActionTimer.is_stopped():
@@ -132,6 +132,6 @@ func _on_Adv_gui_input(ev):
 
 	if ev.button_index == BUTTON_LEFT:
 		var event = InputEventAction.new()
-		event.action = "ren_forward"
+		event.action = "ui_accept"
 		event.pressed = true
 		Input.parse_input_event(event)
