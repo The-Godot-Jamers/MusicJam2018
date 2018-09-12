@@ -5,17 +5,12 @@ func _ready():
 	$center/vbox/options.connect("pressed",self,"_on_options_pressed")
 	$center/vbox/quit.connect("pressed",self,"_on_quit_pressed")
 
-func _input(event):
-	if Input.is_action_just_pressed("shoot") && visible:
-		_on_start_pressed()
-
 func menu_reset():
 	$center/vbox/start.text = "Start"
 	$menubg.show()
 	show()
 
 func _on_start_pressed():
-	print("start")
 	if Globals.lvl == 0:
 		Globals.lvl = 1
 		get_tree().change_scene_to(Globals.lvl1)
