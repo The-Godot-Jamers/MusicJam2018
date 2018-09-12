@@ -39,7 +39,7 @@ func _on_exit_door_area(body):
 
 func active_dialog():
 	Ren.jump(
-		"player",
+		"shipdeck",
 		"door",
 		"locked",
 		false

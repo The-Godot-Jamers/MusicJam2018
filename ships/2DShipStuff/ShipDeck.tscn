@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=3]
+[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=4]
 
 [node name="ShipDeck" type="Node2D" index="0"]
 
@@ -39,6 +41,8 @@ scale = Vector2( 0.30285, 0.302394 )
 closed = true
 
 [node name="Walls" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
 
 [node name="Wall" type="StaticBody2D" parent="Walls" index="0"]
 
@@ -332,5 +336,65 @@ __meta__ = {
 position = Vector2( 307, -4 )
 build_mode = 0
 polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="CapitanDialogTrigger" type="Area2D" parent="." index="6"]
+
+position = Vector2( 780, 234 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CapitanDialogTrigger" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Character" type="Node" parent="CapitanDialogTrigger" index="1"]
+
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+character_id = "capitan"
+character_name = "Capitan"
+color = Color( 1, 0.984375, 0, 1 )
+prefix = ""
+suffix = ""
+avatar = null
+
+[node name="AlienDialogTrigger" type="Area2D" parent="." index="7"]
+
+position = Vector2( 198, 258 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Character" type="Node" parent="AlienDialogTrigger" index="1"]
+
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+character_id = ""
+character_name = ""
+color = Color( 0, 0.501961, 0.501961, 1 )
+prefix = ""
+suffix = ""
+avatar = null
 
 
