@@ -148,4 +148,299 @@ texture = ExtResource( 8 )
 
 shape = SubResource( 2 )
 
+[node name="Walls" type="Node2D" parent="." index="5"]
+
+[node name="Wall" type="StaticBody2D" parent="Walls" index="0"]
+
+editor/display_folded = true
+position = Vector2( 498, 156 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall12" type="StaticBody2D" parent="Walls" index="1"]
+
+editor/display_folded = true
+position = Vector2( 495, 345 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall12" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls" index="2"]
+
+editor/display_folded = true
+position = Vector2( 708, 156 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall2" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -72, -15, 198, -15, 198, 12, -72, 12 )
+
+[node name="Wall11" type="StaticBody2D" parent="Walls" index="3"]
+
+editor/display_folded = true
+position = Vector2( 153, 156 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall11" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -117, -15, 198, -15, 198, 12, -117, 12 )
+
+[node name="Wall13" type="StaticBody2D" parent="Walls" index="4"]
+
+editor/display_folded = true
+position = Vector2( 150, 345 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall13" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -117, -15, 198, -15, 198, 12, -117, 12 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" index="5"]
+
+editor/display_folded = true
+position = Vector2( 705, 348 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall3" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -72, -15, 201, -15, 201, 12, -72, 12 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" index="6"]
+
+editor/display_folded = true
+position = Vector2( 918.964, 178.935 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall4" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -37.9352, -14.0362, 181.065, -14.0362, 181.065, 12.9638, -37.9352, 12.9638 )
+
+[node name="Wall14" type="StaticBody2D" parent="Walls" index="7"]
+
+editor/display_folded = true
+position = Vector2( 21.1172, 176.214 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall14" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -37.9352, -14.0362, 181.065, -14.0362, 181.065, 12.9638, -37.9352, 12.9638 )
+
+[node name="Wall5" type="StaticBody2D" parent="Walls" index="8"]
+
+editor/display_folded = true
+position = Vector2( 516, 36 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall5" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -78, -15, 207, -15, 207, 15, -78, 15 )
+
+[node name="Wall10" type="StaticBody2D" parent="Walls" index="9"]
+
+editor/display_folded = true
+position = Vector2( 519, 462 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall10" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -78, -15, 207, -15, 207, 15, -78, 15 )
+
+[node name="Wall6" type="StaticBody2D" parent="Walls" index="10"]
+
+editor/display_folded = true
+position = Vector2( 428.547, 99.7187 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall6" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall8" type="StaticBody2D" parent="Walls" index="11"]
+
+editor/display_folded = true
+position = Vector2( 430.047, 407.392 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall8" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall7" type="StaticBody2D" parent="Walls" index="12"]
+
+editor/display_folded = true
+position = Vector2( 733.902, 96.1263 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall7" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall9" type="StaticBody2D" parent="Walls" index="13"]
+
+editor/display_folded = true
+position = Vector2( 733.902, 96.1263 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall9" index="0"]
+
+position = Vector2( 307, -4 )
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
 
