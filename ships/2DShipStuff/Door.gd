@@ -12,13 +12,15 @@ func _ready():
 	Ren.connect("story_step", self, "story")
 
 func _on_enter_door_area(body):
+	if body.name != "Player":
+		return
 	is_in_area = true
 
 func _process(delta):
 	if not is_in_area:
 		return
 	
-	if not Input.is_action_just_pressed("ui_accept"):
+	if not Input.is_action_just_pressed("shoot"):
 		return
 
 	if closed:
@@ -30,6 +32,9 @@ func _process(delta):
 		can_be_open = false
 
 func _on_exit_door_area(body):
+	if body.name != "Player":
+		return
+
 	is_in_area = false
 	if closed:
 		return
