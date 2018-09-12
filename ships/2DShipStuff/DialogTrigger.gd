@@ -24,7 +24,7 @@ func _on_exit_trigger(body):
 func active_dialog():
 	Ren.jump(
 		"shipdeck",
-		dialog_id
+		dialog_id,
 		"start",
 		false
 	)

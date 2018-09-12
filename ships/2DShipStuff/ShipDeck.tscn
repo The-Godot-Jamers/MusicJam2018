@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=3]
-[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=4]
+[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=3]
+[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=4]
+[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=5]
+[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=6]
 
 [node name="ShipDeck" type="Node2D" index="0"]
 
@@ -347,6 +349,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CapitanDialogTrigger" index="0"]
 
@@ -356,9 +359,9 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Character" type="Node" parent="CapitanDialogTrigger" index="1"]
 
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 __meta__ = {
-"_editor_icon": ExtResource( 4 )
+"_editor_icon": ExtResource( 5 )
 }
 character_id = "capitan"
 character_name = "Capitan"
@@ -377,6 +380,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="0"]
 
@@ -386,9 +390,9 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Character" type="Node" parent="AlienDialogTrigger" index="1"]
 
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 __meta__ = {
-"_editor_icon": ExtResource( 4 )
+"_editor_icon": ExtResource( 5 )
 }
 character_id = ""
 character_name = ""
