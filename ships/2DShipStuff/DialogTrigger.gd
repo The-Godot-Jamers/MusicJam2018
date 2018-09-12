@@ -15,7 +15,7 @@ func _process(delta):
 	if not is_in_area:
 		return
 
-	if Input.action_press("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
 		active_dialog()
 
 func _on_exit_trigger(body):

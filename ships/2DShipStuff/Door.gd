@@ -14,16 +14,13 @@ func _ready():
 func _on_enter_door_area(body):
 	is_in_area = true
 
-
 func _process(delta):
 	if not is_in_area:
 		return
-		
-
-	if not Input.is_action_pressed("ui_accept"):
-		return
-		
 	
+	if not Input.is_action_just_pressed("ui_accept"):
+		return
+
 	if closed:
 		active_dialog()
 		return
@@ -44,7 +41,7 @@ func _on_exit_door_area(body):
 func active_dialog():
 	Ren.jump(
 		"shipdeck",
-		"door",
+		name,
 		"locked",
 		false
 	)
@@ -57,7 +54,7 @@ func active_dialog():
 	Window.show()
 
 func story(dialog_name):
-	if dialog_name != "example":
+	if dialog_name != name:
 		return
 
 	match Ren.story_state:
