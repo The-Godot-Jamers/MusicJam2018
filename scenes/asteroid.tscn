@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/asteroid.gd" type="Script" id=1]
 
-[sub_resource type="SphereMesh" id=2]
+[sub_resource type="SphereMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 radius = 1.0
@@ -11,7 +11,7 @@ radial_segments = 64
 rings = 32
 is_hemisphere = false
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=2]
 
 render_priority = 0
 flags_transparent = false
@@ -104,9 +104,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 skeleton = NodePath("..")
-material/0 = SubResource( 4 )
+material/0 = SubResource( 2 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="1"]

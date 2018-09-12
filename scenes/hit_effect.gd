@@ -1,3 +1,5 @@
 extends Spatial
 
-onready var parts = get_node("Particles")
+func hit():
+	$Particles.emitting = true
+	$Particles2.emitting = true

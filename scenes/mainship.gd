@@ -60,7 +60,7 @@ func _on_move_tween_tween_completed(object, key):
 
 func take_hit(amt):
 	Globals.camera1.start_shake()
-	$hit_effect.parts.emitting = true
+	$hit_effect.hit()
 	hitpoints -= 1
 	if hitpoints == 0:
 		get_parent().player_dead()
