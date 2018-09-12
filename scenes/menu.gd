@@ -6,15 +6,16 @@ func _input(event):
 		_on_start_pressed()
 
 func menu_reset():
-	$center/vbox/start/center/Label.text = "Start"
+	$center/vbox/start.text = "Start"
 	$menubg.show()
 	show()
 
 func _on_start_pressed():
+	print("start")
 	if Globals.lvl == 0:
 		Globals.lvl = 1
 		get_tree().change_scene_to(Globals.lvl1)
-		$center/vbox/start/center/Label.text = "Resume"
+		$center/vbox/start.text = "Resume"
 		$menubg.hide()
 	else:
 		pass
