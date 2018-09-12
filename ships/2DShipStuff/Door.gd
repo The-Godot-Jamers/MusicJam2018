@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+
 export(bool) var closed = false ## player can't go in if true
 export(String, MULTILINE) var why_closed = "" ## what player say about doors if they are closed
 var can_be_open = true ## used to open/close door
@@ -12,23 +13,31 @@ func _ready():
 
 func _on_enter_door_area(body):
 	is_in_area = true
+	print("on enter")
 
 func _process(delta):
 	if not is_in_area:
+		print("ret1")
 		return
+		
 
-	if not Input.action_press("ui_accept"):
+	if not Input.is_action_pressed("ui_accept"):
+		print("ret2")
 		return
+		
 	
 	if closed:
+		print("close")
 		active_dialog()
 		return
 	
 	if can_be_open:
+		print("can be open")
 		$AnimationPlayer.play("open")
 		can_be_open = false
 
 func _on_exit_door_area(body):
+	print("exit")
 	is_in_area = false
 	if closed:
 		return
