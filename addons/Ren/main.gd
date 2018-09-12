@@ -245,7 +245,7 @@ func start():
 	using_passer = false
 	current_id = 0
 	local_id = 0
-	story_step()
+	# story_step()
 	started = true
 
 
