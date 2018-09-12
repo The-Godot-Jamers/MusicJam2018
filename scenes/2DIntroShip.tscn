@@ -1,13 +1,22 @@
 [gd_scene load_steps=7 format=2]
 
+<<<<<<< HEAD
+[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gfx/space.png" type="Texture" id=2]
+[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=3]
+[ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Characters/IntroShip.png" type="Texture" id=5]
+[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=6]
+=======
 [ext_resource path="res://scenes/2DIntroShip.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gfx/space.png" type="Texture" id=3]
 [ext_resource path="res://Characters/IntroShip.png" type="Texture" id=4]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=5]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=6]
+>>>>>>> 93c325b49cea7b0553dd9319c3f6daa06d8f7909
 
-[node name="2DIntroShip" type="StaticBody2D" index="0"]
+[node name="2DIntroShip" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -32,7 +41,6 @@ position = Vector2( 8895, 3495 )
 
 [node name="Camera2D" type="Camera2D" parent="Character" index="5"]
 
-visible = false
 position = Vector2( -1.89069, -5.44923 )
 anchor_mode = 1
 rotating = false
@@ -69,21 +77,44 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="IntroShip" type="Sprite" parent="." index="3"]
+[node name="TheIntroShip_Draft" type="Sprite" parent="." index="3"]
+
+<<<<<<< HEAD
+position = Vector2( 8700, 4066 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Sprite" parent="TheIntroShip_Draft" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 156, -470 )
+
+[node name="IntroShip" type="Sprite" parent="." index="4"]
 
 position = Vector2( 8610, 3940 )
+z_index = -1
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Z Index" ]
+=======
+position = Vector2( 8610, 3940 )
 texture = ExtResource( 4 )
+>>>>>>> 93c325b49cea7b0553dd9319c3f6daa06d8f7909
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TheIntroShip_Blueprint" type="Sprite" parent="." index="4"]
+[node name="TheIntroShip_Blueprint" type="Sprite" parent="." index="5"]
 
+visible = false
 position = Vector2( 8715, 4068 )
+<<<<<<< HEAD
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Z Index" ]
+=======
 texture = ExtResource( 5 )
 
 [node name="Door" parent="TheIntroShip_Blueprint" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 141, -472 )
+>>>>>>> 93c325b49cea7b0553dd9319c3f6daa06d8f7909
 
 
