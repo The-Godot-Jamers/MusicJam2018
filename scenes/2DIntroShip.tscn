@@ -7,7 +7,7 @@
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=5]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=6]
 
-[node name="2DIntroShip" type="StaticBody2D" index="0"]
+[node name="2DIntroShip" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1

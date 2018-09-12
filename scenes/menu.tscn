@@ -5,7 +5,7 @@
 [ext_resource path="res://gfx/spacebg.PNG" type="Texture" id=3]
 [ext_resource path="res://sfx/click1.wav" type="AudioStream" id=4]
 
-[node name="menu" type="Control"]
+[node name="menu" type="Control" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0

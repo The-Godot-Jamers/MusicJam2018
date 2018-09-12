@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	$center/vbox/start.connect("pressed",self,"_on_start_pressed")
+	$center/vbox/options.connect("pressed",self,"_on_options_pressed")
+	$center/vbox/quit.connect("pressed",self,"_on_quit_pressed")
 
 func _input(event):
 	if Input.is_action_just_pressed("shoot") && visible:
