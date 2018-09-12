@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
+[ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
+
+[node name="ShipDeck" type="Node2D" index="0"]
+
+[node name="TheIntroShip_Blueprint" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0, -70 )
+scale = Vector2( 0.30285, 0.302394 )
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door" parent="TheIntroShip_Blueprint" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 1832.59, 717.607 )
+
+[node name="Door2" parent="TheIntroShip_Blueprint" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 1822.68, 1352.54 )
+
+[node name="Door3" parent="TheIntroShip_Blueprint" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 1139.18, 1332.7 )
+closed = true
+
+[node name="Door4" parent="TheIntroShip_Blueprint" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 1149.08, 727.528 )
+closed = true
+
+
