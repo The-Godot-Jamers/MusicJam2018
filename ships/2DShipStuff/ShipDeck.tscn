@@ -123,28 +123,28 @@ avatar = null
 
 script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
-speed = 200.0
-keyboard_speed = 200.0
+speed = 50.0
+keyboard_speed = 50.0
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="0"]
 
 navpoly = SubResource( 1 )
 enabled = true
 
-[node name="Player" type="Sprite" parent="Navigation" index="1"]
+[node name="Player" type="KinematicBody2D" parent="Navigation" index="1"]
 
 position = Vector2( 483, 261 )
 scale = Vector2( 0.59375, 0.59375 )
-texture = ExtResource( 8 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="Navigation/Player" index="0"]
-
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player/KinematicBody2D" index="0"]
+[node name="icon" type="Sprite" parent="Navigation/Player" index="0"]
+
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="1"]
 
 shape = SubResource( 2 )
 

@@ -31,7 +31,7 @@ func _process(delta):
 				to_walk = 0
 		
 		var atpos = path[path.size() - 1]
-		$Player.position = atpos
+		$Player.move_and_collide(atpos - $Player.position)
 		
 		if path.size() < 2:
 			path = []
