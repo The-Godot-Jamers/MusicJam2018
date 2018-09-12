@@ -156,10 +156,4 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[connection signal="pressed" from="center/vbox/start" to="." method="_on_start_pressed"]
-
-[connection signal="pressed" from="center/vbox/options" to="." method="_on_options_pressed"]
-
-[connection signal="pressed" from="center/vbox/quit" to="." method="_on_quit_pressed"]
-
 
