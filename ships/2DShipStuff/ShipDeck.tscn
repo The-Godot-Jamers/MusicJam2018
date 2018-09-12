@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=6]
 [ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://scenes/warranty.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -20,7 +21,7 @@ outlines = [ PoolVector2Array( 36, 168, 555, 168, 555, 141, 441, 141, 441, 51, 7
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ShipDeck" type="Node2D" index="0"]
+[node name="ShipDeck" type="Node2D"]
 
 [node name="Blueprint" type="Sprite" parent="." index="0"]
 
@@ -58,6 +59,7 @@ closed = true
 [node name="Walls" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
+visible = false
 
 [node name="Wall" type="StaticBody2D" parent="Walls" index="0"]
 
@@ -418,7 +420,6 @@ avatar = null
 
 [node name="Navigation" type="Navigation2D" parent="." index="8"]
 
-editor/display_folded = true
 script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
@@ -426,6 +427,7 @@ keyboard_speed = 50.0
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="0"]
 
+visible = false
 navpoly = SubResource( 1 )
 enabled = true
 
@@ -437,6 +439,9 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="icon" type="Sprite" parent="Navigation/Player" index="0"]
 
@@ -444,6 +449,71 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="1"]
 
+visible = false
 shape = SubResource( 2 )
+
+[node name="bounties" type="Control" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 470.0
+margin_right = 40.0
+margin_bottom = 470.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hbox" type="HBoxContainer" parent="bounties" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1120.0
+margin_bottom = 320.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 100
+alignment = 0
+_sections_unfolded = [ "Rect", "custom_constants" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="warranty" parent="bounties/hbox" index="0" instance=ExtResource( 9 )]
+
+margin_right = 300.0
+margin_bottom = 300.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="warranty2" parent="bounties/hbox" index="1" instance=ExtResource( 9 )]
+
+margin_left = 400.0
+margin_right = 700.0
+margin_bottom = 300.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="warranty3" parent="bounties/hbox" index="2" instance=ExtResource( 9 )]
+
+margin_left = 800.0
+margin_right = 1100.0
+margin_bottom = 300.0
+rect_scale = Vector2( 1, 1 )
 
 

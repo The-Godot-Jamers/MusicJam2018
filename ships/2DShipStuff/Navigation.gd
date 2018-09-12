@@ -1,7 +1,7 @@
 extends Navigation2D
 
 
-export var speed = 200.0
+export var speed = 500.0
 export var keyboard_speed = 200.0
 
 var begin = Vector2()

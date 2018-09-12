@@ -10,14 +10,15 @@ func menu_reset():
 	$menubg.show()
 	show()
 
+func show_bg():
+	$menubg.show()
+
 func _on_start_pressed():
 	if Globals.lvl == 0:
-		Globals.lvl = 1
-		get_tree().change_scene_to(Globals.lvl1)
+		Globals.lvl = -1
+		get_tree().change_scene_to(Globals.intro)
 		$center/vbox/start.text = "Resume"
-		$menubg.hide()
-	else:
-		pass
+	$menubg.hide()
 	get_tree().paused = false
 	hide()
 	$AudioStreamPlayer.play()

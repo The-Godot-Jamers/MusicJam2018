@@ -17,7 +17,7 @@ func story(dialog_name):
 		
 		"cap01":
 			Ren.say({
-				"who":"captian",
+				"who":"captain",
 				"what": "Stop screwing around, oficer."
 			})
 			Ren.story_state = "player01"
@@ -31,7 +31,7 @@ func story(dialog_name):
 
 		"cap02":
 			Ren.say({
-				"who":"captian",
+				"who":"captain",
 				"what": "Seriously! Any way go and talk with that alien."
 			})
 			Ren.story_state = "exit_dialog"
