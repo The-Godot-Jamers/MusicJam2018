@@ -334,7 +334,7 @@ tracks/1/keys = {
 "values": [ Vector3( -90, 0, 0 ), Vector3( -75, -90, 90 ), Vector3( -90, 0, 0 ) ]
 }
 
-[node name="mainship" type="Area"]
+[node name="mainship" type="Area" index="0"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -469,6 +469,13 @@ playback_speed = 1.0
 anims/bank_left = SubResource( 4 )
 anims/bank_right = SubResource( 5 )
 blend_times = [  ]
+
+[node name="collision_timer" type="Timer" parent="." index="12"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 [connection signal="tween_completed" from="move_tween" to="." method="_on_move_tween_tween_completed"]
 

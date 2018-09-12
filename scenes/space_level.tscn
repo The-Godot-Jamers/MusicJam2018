@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Space_level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/mainship.tscn" type="PackedScene" id=2]
@@ -8,6 +8,37 @@
 [ext_resource path="res://scenes/Camera2.gd" type="Script" id=6]
 [ext_resource path="res://scenes/visualiser/visualiser.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/music.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "camera_drive"
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 8.04861, 11.3532, -3.31019 ), Vector3( 0, 8, -20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -38.8753, 142.155, 1.87824 ), Vector3( 0, 177.672, 0 ) ]
+}
 
 [node name="space_level" type="Spatial"]
 
@@ -76,7 +107,7 @@ directional_shadow_max_distance = 200.0
 
 [node name="Camera" type="Camera" parent="." index="4"]
 
-transform = Transform( -0.999175, 0, 0.0406215, 0, 1, 0, -0.0406215, 0, -0.999175, 0, 8, -20 )
+transform = Transform( -0.80187, -0.358978, 0.47764, 0.0255163, 0.778095, 0.627628, -0.596953, 0.515463, -0.614772, 8.04861, 11.3532, -3.31019 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -107,6 +138,16 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="camera_animation" type="AnimationPlayer" parent="Camera" index="2"]
+
+root_node = NodePath("..")
+autoplay = "camera_drive"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/camera_drive = SubResource( 1 )
+blend_times = [  ]
 
 [node name="Camera2" type="Camera" parent="." index="5"]
 
@@ -169,6 +210,8 @@ one_shot = false
 autostart = true
 
 [connection signal="timeout" from="Camera/shake_timer" to="Camera" method="_on_shake_timer_timeout"]
+
+[connection signal="animation_finished" from="Camera/camera_animation" to="Camera" method="_on_camera_animation_animation_finished"]
 
 [connection signal="timeout" from="Camera2/shake_timer" to="Camera2" method="_on_shake_timer_timeout"]
 

@@ -6,7 +6,7 @@ var fixed_trans = Vector3()
 var maxhitpoints = 10000
 var hitpoints 
 var lane_move = 5
-var move_speed = 0.6
+var move_speed = 0.4
 var can_move = true
 var movex 
 

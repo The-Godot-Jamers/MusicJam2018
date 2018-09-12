@@ -28,6 +28,15 @@ func _input(event):
 		$move_tween.start()
 		can_move = false
 		$AnimationPlayer.play("bank_right")
+#	if Input.is_action_just_pressed("down") && can_move:
+#		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(0.0,0.0,-lane_move),move_speed,Tween.TRANS_EXPO,Tween.EASE_IN_OUT)
+#		$move_tween.start()
+#		can_move = false
+#	if Input.is_action_just_pressed("up") && can_move:
+#		$move_tween.interpolate_property(self,"translation",translation,translation + Vector3(0.0,0.0,lane_move),move_speed,Tween.TRANS_EXPO,Tween.EASE_IN_OUT)
+#		$move_tween.start()
+#		can_move = false
+		
 	
 	if Input.is_action_pressed("shoot"):
 		is_shooting = true
@@ -42,7 +51,7 @@ func _physics_process(delta):
 
 func shoot():
 	if $shooting_ray.is_colliding():
-		#end = $shooting_ray.get_collision_point()
+		end = Vector3(0.0, 0.0, $shooting_ray.get_collision_point().z - translation.z)
 		var hit = $shooting_ray.get_collider()
 		var bus = AudioServer.get_bus_index("Master")
 		hit.take_hit(abs((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 5)
@@ -59,11 +68,12 @@ func _on_move_tween_tween_completed(object, key):
 	$lane_timer.start()
 
 func take_hit(amt):
-	Globals.camera1.start_shake()
-	$hit_effect.hit()
-	hitpoints -= 1
-	if hitpoints == 0:
-		get_parent().player_dead()
+	if $collision_timer.is_stopped():
+		Globals.camera1.start_shake()
+		$hit_effect.hit()
+		hitpoints -= 1
+		if hitpoints == 0:
+			get_parent().player_dead()
 
 func _on_lane_timer_timeout():
 	get_parent().create_lanes()

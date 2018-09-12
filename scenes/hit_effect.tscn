@@ -182,7 +182,7 @@ surfaces/0 = {
 }
 _sections_unfolded = [ "surface_1" ]
 
-[node name="hit_effect" type="Spatial" index="0"]
+[node name="hit_effect" type="Spatial"]
 
 script = ExtResource( 1 )
 
@@ -198,7 +198,7 @@ lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 emitting = false
-amount = 30
+amount = 20
 lifetime = 1.0
 one_shot = true
 preprocess = 0.0
@@ -227,7 +227,7 @@ lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 emitting = false
-amount = 10
+amount = 20
 lifetime = 1.0
 one_shot = true
 preprocess = 0.0
