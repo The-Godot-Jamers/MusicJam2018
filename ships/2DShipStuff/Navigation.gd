@@ -1,17 +1,24 @@
 extends Navigation2D
 
-# Member variables
-const SPEED = 200.0
+
+export var speed = 200.0
+export var keyboard_speed = 200.0
 
 var begin = Vector2()
 var end = Vector2()
 var path = []
-var keyboard_speed = 5
 
+var process_path = true
 
 func _process(delta):
+
+	handle_input(delta)
+
+	if not process_path:
+		return
+
 	if path.size() > 1:
-		var to_walk = delta * SPEED
+		var to_walk = delta * speed
 		while to_walk > 0 and path.size() >= 2:
 			var pfrom = path[path.size() - 1]
 			var pto = path[path.size() - 2]
@@ -28,9 +35,9 @@ func _process(delta):
 		
 		if path.size() < 2:
 			path = []
-			set_process(false)
+			process_path = false
 	else:
-		set_process(false)
+		process_path = false
 
 
 func _update_path():
@@ -38,44 +45,35 @@ func _update_path():
 	path = Array(p) # PoolVector2Array too complex to use, convert to regular array
 	path.invert()
 	
-	set_process(true)
+	process_path = true
 
+func nav_to(new_pos):
+	begin = $Player.position
+	end = new_pos - position
+	_update_path()
 
-func _input(event):
-	if event.is_action_pressed("left_mouse_button"):
-		begin = $Player.position
-		# Mouse to local navigation coordinates
-		end = get_global_mouse_position() - position
-		_update_path()
+func handle_input(delta):
+	if Input.is_action_pressed("left_mouse_button"):
+		nav_to(get_global_mouse_position())
+		return
+
+	var new_pos = $Player.position
+	if Input.is_action_pressed("up"):
+		new_pos.y -= keyboard_speed * delta
+		nav_to(new_pos)
+		return
 	
-	if event.is_action_pressed("up"):
-		begin = $Player.position
-		# Mouse to local navigation coordinates
-		var proposed_pos = begin
-		proposed_pos.y += keyboard_speed
-		end = proposed_pos - position
-		_update_path()
+	if Input.is_action_pressed("down"):
+		new_pos.y += keyboard_speed * delta
+		nav_to(new_pos)
+		return
 	
-	if event.is_action_pressed("down"):
-		begin = $Player.position
-		# Mouse to local navigation coordinates
-		var proposed_pos = begin
-		proposed_pos.y -= keyboard_speed
-		end = proposed_pos - position
-		_update_path()
+	if Input.is_action_pressed("right"):
+		new_pos.x += keyboard_speed * delta
+		nav_to(new_pos)
+		return
 	
-	if event.is_action_pressed("right"):
-		begin = $Player.position
-		# Mouse to local navigation coordinates
-		var proposed_pos = begin
-		proposed_pos.x += keyboard_speed
-		end = proposed_pos - position
-		_update_path()
-	
-	if event.is_action_pressed("left"):
-		begin = $Player.position
-		# Mouse to local navigation coordinates
-		var proposed_pos = begin
-		proposed_pos.x -= keyboard_speed
-		end = proposed_pos - position
-		_update_path()
+	if Input.is_action_pressed("left"):
+		new_pos.x -= keyboard_speed * delta
+		nav_to(new_pos)
+		return

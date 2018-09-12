@@ -20,7 +20,7 @@ outlines = [ PoolVector2Array( 36, 168, 555, 168, 555, 141, 441, 141, 441, 51, 7
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ShipDeck" type="Node2D"]
+[node name="ShipDeck" type="Node2D" index="0"]
 
 [node name="Blueprint" type="Sprite" parent="." index="0"]
 
@@ -123,6 +123,8 @@ avatar = null
 
 script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
+speed = 200.0
+keyboard_speed = 200.0
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="0"]
 

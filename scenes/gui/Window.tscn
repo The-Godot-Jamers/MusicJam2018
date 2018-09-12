@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/gui/InGameGUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/gui/Screens.tscn" type="PackedScene" id=3]
 
-[node name="Window" type="Control" index="0"]
+[node name="Window" type="Control"]
 
 pause_mode = 2
 visible = false
