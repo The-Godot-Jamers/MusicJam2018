@@ -7,7 +7,7 @@ func _ready():
 
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_accept") && visible:
+	if Input.is_action_just_pressed("shoot") && visible:
 		_on_start_pressed()
 
 func menu_reset():
