@@ -5,7 +5,7 @@
 [ext_resource path="res://gfx/spacebg.PNG" type="Texture" id=3]
 [ext_resource path="res://sfx/click1.wav" type="AudioStream" id=4]
 
-[node name="menu" type="Control"]
+[node name="menu" type="Control" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
@@ -155,11 +155,5 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-
-[connection signal="pressed" from="center/vbox/start" to="." method="_on_start_pressed"]
-
-[connection signal="pressed" from="center/vbox/options" to="." method="_on_options_pressed"]
-
-[connection signal="pressed" from="center/vbox/quit" to="." method="_on_quit_pressed"]
 
 
