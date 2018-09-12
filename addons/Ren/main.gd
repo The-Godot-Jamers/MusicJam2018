@@ -61,6 +61,8 @@ func exec_statement(type, kwargs = {}):
 	emit_signal("exec_statement", type, kwargs)
 
 func exit_statement(kwargs = {}):
+	if current_statement == null:
+		return
 	emit_signal("exit_statement", current_statement.type, kwargs)
 
 func story_step():
@@ -245,7 +247,7 @@ func start():
 	using_passer = false
 	current_id = 0
 	local_id = 0
-	story_step()
+	# story_step()
 	started = true
 
 

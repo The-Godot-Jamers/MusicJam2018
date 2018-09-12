@@ -92,7 +92,7 @@ func on_skip_loop():
 	
 
 func _input(event):
-	if event.is_action_pressed("ren_forward"):
+	if event.is_action_pressed("ui_accept"):
 		if Ren.skip_auto:
 			$AutoTimer.stop()
 			stop_skip()

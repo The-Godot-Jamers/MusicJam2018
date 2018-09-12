@@ -1,0 +1,449 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
+[ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=3]
+[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=4]
+[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=5]
+[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=6]
+[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 36, 330, 36, 168, 555, 168, 552, 330, 555, 141, 441, 141, 441, 51, 723, 51, 723, 141, 633, 141, 633, 168, 627, 330, 906, 168, 906, 330, 627, 360, 552, 360, 726, 360, 726, 450, 444, 450, 444, 360 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 8, 9 ), PoolIntArray( 4, 7, 9, 2 ), PoolIntArray( 2, 9, 10, 11, 3 ), PoolIntArray( 10, 12, 13, 11 ), PoolIntArray( 3, 11, 14, 15 ), PoolIntArray( 14, 16, 17, 18 ), PoolIntArray( 15, 14, 18 ), PoolIntArray( 15, 18, 19 ) ]
+outlines = [ PoolVector2Array( 36, 168, 555, 168, 555, 141, 441, 141, 441, 51, 723, 51, 723, 141, 633, 141, 633, 168, 906, 168, 906, 330, 627, 330, 627, 360, 726, 360, 726, 450, 444, 450, 444, 360, 552, 360, 552, 330, 36, 330 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="ShipDeck" type="Node2D" index="0"]
+
+[node name="Blueprint" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0, -70 )
+scale = Vector2( 0.30285, 0.302394 )
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 555, 147 )
+scale = Vector2( 0.30285, 0.302394 )
+
+[node name="Door2" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 552, 339 )
+scale = Vector2( 0.30285, 0.302394 )
+
+[node name="Door3" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 345, 333 )
+scale = Vector2( 0.30285, 0.302394 )
+closed = true
+
+[node name="Door4" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 348, 150 )
+scale = Vector2( 0.30285, 0.302394 )
+closed = true
+
+[node name="Walls" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+
+[node name="Wall" type="StaticBody2D" parent="Walls" index="0"]
+
+editor/display_folded = true
+position = Vector2( 498, 156 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall12" type="StaticBody2D" parent="Walls" index="1"]
+
+editor/display_folded = true
+position = Vector2( 495, 345 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall12" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls" index="2"]
+
+editor/display_folded = true
+position = Vector2( 708, 156 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall2" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -72, -15, 198, -15, 198, 12, -72, 12 )
+
+[node name="Wall11" type="StaticBody2D" parent="Walls" index="3"]
+
+editor/display_folded = true
+position = Vector2( 153, 156 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall11" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -117, -15, 198, -15, 198, 12, -117, 12 )
+
+[node name="Wall13" type="StaticBody2D" parent="Walls" index="4"]
+
+editor/display_folded = true
+position = Vector2( 150, 345 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall13" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -117, -15, 198, -15, 198, 12, -117, 12 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" index="5"]
+
+editor/display_folded = true
+position = Vector2( 705, 348 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall3" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -72, -15, 201, -15, 201, 12, -72, 12 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" index="6"]
+
+editor/display_folded = true
+position = Vector2( 918.964, 178.935 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall4" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -37.9352, -14.0362, 181.065, -14.0362, 181.065, 12.9638, -37.9352, 12.9638 )
+
+[node name="Wall14" type="StaticBody2D" parent="Walls" index="7"]
+
+editor/display_folded = true
+position = Vector2( 21.1172, 176.214 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall14" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -37.9352, -14.0362, 181.065, -14.0362, 181.065, 12.9638, -37.9352, 12.9638 )
+
+[node name="Wall5" type="StaticBody2D" parent="Walls" index="8"]
+
+editor/display_folded = true
+position = Vector2( 516, 36 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall5" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -78, -15, 207, -15, 207, 15, -78, 15 )
+
+[node name="Wall10" type="StaticBody2D" parent="Walls" index="9"]
+
+editor/display_folded = true
+position = Vector2( 519, 462 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall10" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -78, -15, 207, -15, 207, 15, -78, 15 )
+
+[node name="Wall6" type="StaticBody2D" parent="Walls" index="10"]
+
+editor/display_folded = true
+position = Vector2( 428.547, 99.7187 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall6" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall8" type="StaticBody2D" parent="Walls" index="11"]
+
+editor/display_folded = true
+position = Vector2( 430.047, 407.392 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall8" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall7" type="StaticBody2D" parent="Walls" index="12"]
+
+editor/display_folded = true
+position = Vector2( 733.902, 96.1263 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall7" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="Wall9" type="StaticBody2D" parent="Walls" index="13"]
+
+editor/display_folded = true
+position = Vector2( 733.902, 96.1263 )
+rotation = 1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall9" index="0"]
+
+position = Vector2( 307, -4 )
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+
+[node name="CapitanDialogTrigger" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 780, 234 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CapitanDialogTrigger" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Character" type="Node" parent="CapitanDialogTrigger" index="1"]
+
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+character_id = "capitan"
+character_name = "Capitan"
+color = Color( 1, 0.984375, 0, 1 )
+prefix = ""
+suffix = ""
+avatar = null
+
+[node name="AlienDialogTrigger" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 198, 258 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Character" type="Node" parent="AlienDialogTrigger" index="1"]
+
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+character_id = ""
+character_name = ""
+color = Color( 0, 0.501961, 0.501961, 1 )
+prefix = ""
+suffix = ""
+avatar = null
+
+[node name="Navigation" type="Navigation2D" parent="." index="8"]
+
+editor/display_folded = true
+script = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+speed = 50.0
+keyboard_speed = 50.0
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Player" type="KinematicBody2D" parent="Navigation" index="1"]
+
+position = Vector2( 483, 261 )
+scale = Vector2( 0.59375, 0.59375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="icon" type="Sprite" parent="Navigation/Player" index="0"]
+
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="1"]
+
+shape = SubResource( 2 )
+
+

@@ -8,6 +8,7 @@ onready var im = get_node("draw") #ImmediateGeometry
 var lane_move = 5
 var move_speed = 0.6
 var can_move = true
+var is_shooting = false
 
 func _ready():
 	Globals.mainship = self
@@ -29,25 +30,29 @@ func _input(event):
 		$AnimationPlayer.play("bank_right")
 	
 	if Input.is_action_pressed("shoot"):
-		shoot()
+		is_shooting = true
 	else:
-		$shooting_ray.enabled = false
+		is_shooting = false
 		im.clear() #clear the laser if not shooting
 
 func _physics_process(delta):
-	if $shooting_ray.is_colliding():
-		var hit = $shooting_ray.get_collider()
-		var bus = AudioServer.get_bus_index("Master")
-		hit.take_hit(abs((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 5)
+	if is_shooting: 
+		shoot()
 
 
 func shoot():
+	if $shooting_ray.is_colliding():
+		#end = $shooting_ray.get_collision_point()
+		var hit = $shooting_ray.get_collider()
+		var bus = AudioServer.get_bus_index("Master")
+		hit.take_hit(abs((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 5)
+	else:
+		end = Vector3(0,0,15)
 	im.set_material_override(m)
 	im.begin(Mesh.PRIMITIVE_LINES)
 	im.add_vertex(begin)
 	im.add_vertex(end)
 	im.end()
-	$shooting_ray.enabled = true
 
 func _on_move_tween_tween_completed(object, key):
 	can_move = true

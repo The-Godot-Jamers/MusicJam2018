@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gfx/ringed-planet (1).png" type="Texture" id=1]
+[ext_resource path="res://planet_sign.gd" type="Script" id=2]
+
+[node name="planet_sign" type="Sprite" index="0"]
+
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+
