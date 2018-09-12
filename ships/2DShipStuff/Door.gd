@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 
 
 export(bool) var closed = false ## player can't go in if true
