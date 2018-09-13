@@ -10,7 +10,7 @@ use_filter = true
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Back" type="Button"]
+[node name="Back" type="Button" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -34,7 +34,7 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 text = "Back"
-flat = true
+flat = false
 align = 1
 _sections_unfolded = [ "Theme", "custom_colors", "custom_fonts" ]
 
