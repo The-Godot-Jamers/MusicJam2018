@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
@@ -21,7 +21,46 @@ outlines = [ PoolVector2Array( 36, 168, 555, 168, 555, 141, 441, 141, 441, 51, 7
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="ShipDeck" type="Node2D"]
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+
+uniform bool highlighted = false;
+
+void fragment() 
+{
+	COLOR = texture(TEXTURE,UV);
+	if (highlighted) 
+	{
+		COLOR.rgb = texture(TEXTURE,UV).rgb * 0.5;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/highlighted = false
+_sections_unfolded = [ "Resource", "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=5]
+
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/highlighted = false
+_sections_unfolded = [ "Resource", "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=6]
+
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/highlighted = false
+_sections_unfolded = [ "Resource", "shader_param" ]
+
+[node name="ShipDeck" type="Node2D" index="0"]
 
 [node name="Blueprint" type="Sprite" parent="." index="0"]
 
@@ -424,6 +463,7 @@ script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
 keyboard_speed = 50.0
+rot_speed = 0.5
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="0"]
 
@@ -498,12 +538,14 @@ __meta__ = {
 
 [node name="warranty" parent="bounties/hbox" index="0" instance=ExtResource( 9 )]
 
+material = SubResource( 4 )
 margin_right = 300.0
 margin_bottom = 300.0
 rect_scale = Vector2( 1, 1 )
 
 [node name="warranty2" parent="bounties/hbox" index="1" instance=ExtResource( 9 )]
 
+material = SubResource( 5 )
 margin_left = 400.0
 margin_right = 700.0
 margin_bottom = 300.0
@@ -511,6 +553,7 @@ rect_scale = Vector2( 1, 1 )
 
 [node name="warranty3" parent="bounties/hbox" index="2" instance=ExtResource( 9 )]
 
+material = SubResource( 6 )
 margin_left = 800.0
 margin_right = 1100.0
 margin_bottom = 300.0
