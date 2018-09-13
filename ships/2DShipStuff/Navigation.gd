@@ -7,12 +7,15 @@ export var keyboard_speed = 200.0
 var begin = Vector2()
 var end = Vector2()
 var path = []
+#var look_at = get_global_mouse_position()
 
 var process_path = true
 
-func _process(delta):
 
+func _process(delta):
+	
 	handle_input(delta)
+	
 
 	if not process_path:
 		return
@@ -39,6 +42,20 @@ func _process(delta):
 	else:
 		process_path = false
 
+func rotate_const_speed(a, b, d): #In radians
+    if abs(a-b) >= PI: #only need to adjust for the long way round
+        if a > b:
+            b += 2 * PI
+        else:
+            a += 2 * PI
+    if a > b:
+        d = -d
+    return move_towards_float(a, b, d)
+
+func move_towards_float (x, target, step): #Moves towards t without passing it
+    if abs(target - x) < abs(step):
+        return target
+    else: return x + step
 
 func _update_path():
 	var p = get_simple_path(begin, end, true)
@@ -52,27 +69,35 @@ func nav_to(new_pos):
 	end = new_pos - position
 	_update_path()
 
+
 func handle_input(delta):
+	
+	var new_pos = $Player.position
+	#var look_at = get_global_mouse_position()
+
+
+
 	if Input.is_action_pressed("left_mouse_button"):
 		nav_to(get_global_mouse_position())
 		return
 
-	var new_pos = $Player.position
+
+	
 	if Input.is_action_pressed("up"):
 		new_pos.y -= keyboard_speed * delta
-		$Player.rotation_degrees = 90
+		$Player.rotation_degrees = 180
 		nav_to(new_pos)
 		return
 	
 	if Input.is_action_pressed("down"):
 		new_pos.y += keyboard_speed * delta
-		$Player.rotation_degrees = 90
+		$Player.rotation_degrees = 0
 		nav_to(new_pos)
 		return
 	
 	if Input.is_action_pressed("right"):
 		new_pos.x += keyboard_speed * delta
-		$Player.rotation_degrees = 90
+		$Player.rotation_degrees = 270
 		nav_to(new_pos)
 		return
 	
