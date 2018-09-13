@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
@@ -12,6 +12,12 @@
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=10]
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=11]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=12]
+
+[sub_resource type="NavigationPolygon" id=4]
+
+vertices = PoolVector2Array( 445.836, 54.5253, 491.351, 53.0464, 491.139, 131.042, 446.559, 131.741, 490.625, 47.5307, 524.3, 48.274, 514.501, 64.999, 494.367, 64.6274, 492.942, 59.2382, 495.375, 122.684, 524.336, 122.684, 524.336, 140.561, 494.666, 140.684, 672.592, 139.984, 672.964, 135.629, 672.722, 142.708, 671.995, 134.871, 672.592, 123.953, 647.757, 66.1081, 641.67, 45.1134, 679.024, 45.3782, 671.268, 66.3609, 642.666, 142.455, 644.754, 139.739, 642.666, 122.736, 644.597, 123.953, 671.51, 123.242, 724.35, 46.1366, 725.319, 134.871 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 14, 15 ), PoolIntArray( 14, 13, 16, 17 ), PoolIntArray( 18, 19, 20, 21 ), PoolIntArray( 13, 15, 22, 23 ), PoolIntArray( 23, 22, 24, 25 ), PoolIntArray( 25, 24, 26, 17 ), PoolIntArray( 21, 20, 27, 28, 14, 17 ), PoolIntArray( 17, 26, 21 ) ]
+outlines = [ PoolVector2Array( 445.836, 54.5253, 491.351, 53.0464, 491.139, 131.042, 446.559, 131.741 ), PoolVector2Array( 492.942, 59.2382, 494.367, 64.6274, 514.501, 64.999, 524.3, 48.274, 490.625, 47.5307 ), PoolVector2Array( 495.375, 122.684, 524.336, 122.684, 524.336, 140.561, 494.666, 140.684 ), PoolVector2Array( 644.754, 139.739, 644.597, 123.953, 672.592, 123.953, 671.995, 134.871, 672.592, 139.984 ), PoolVector2Array( 641.67, 45.1134, 679.024, 45.3782, 724.35, 46.1366, 725.319, 134.871, 672.964, 135.629, 672.237, 142.96, 642.666, 142.455, 642.666, 122.736, 671.51, 123.242, 671.268, 66.3609, 647.757, 66.1081 ) ]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -56,27 +62,33 @@ __meta__ = {
 
 position = Vector2( 555, 147 )
 scale = Vector2( 0.30285, 0.302394 )
+z_index = 1
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Door2" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 552, 339 )
 scale = Vector2( 0.30285, 0.302394 )
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Door3" parent="." index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 345, 333 )
 scale = Vector2( 0.30285, 0.302394 )
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
 closed = true
 
 [node name="Door4" parent="." index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 348, 150 )
 scale = Vector2( 0.30285, 0.302394 )
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
 closed = true
 
 [node name="Walls" type="Node2D" parent="." index="5"]
-
-editor/display_folded = true
 
 [node name="Wall" type="StaticBody2D" parent="Walls" index="0"]
 
@@ -442,7 +454,16 @@ _sections_unfolded = [ "Transform" ]
 speed = 50.0
 keyboard_speed = 50.0
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="0"]
+[node name="Funiture" type="NavigationPolygonInstance" parent="Navigation" index="0"]
+
+position = Vector2( 8.38234, 5.93543 )
+scale = Vector2( 0.981199, 0.940758 )
+z_as_relative = false
+navpoly = SubResource( 4 )
+enabled = true
+_sections_unfolded = [ "Z Index" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="1"]
 
 navpoly = SubResource( 1 )
 enabled = true
@@ -450,9 +471,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" type="KinematicBody2D" parent="Navigation" index="1"]
+[node name="Player" type="KinematicBody2D" parent="Navigation" index="2"]
 
-position = Vector2( 483, 261 )
+position = Vector2( 557.841, 104.412 )
 scale = Vector2( 0.59375, 0.59375 )
 z_index = 1
 input_pickable = false
@@ -470,6 +491,9 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="1"]
 
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Navigation/Player" index="2"]
 
@@ -479,6 +503,9 @@ frames = SubResource( 3 )
 animation = "Walk_Down"
 frame = 3
 playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TheIntroShip_Draft" type="Sprite" parent="." index="9"]
 
