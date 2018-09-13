@@ -6,12 +6,12 @@
 [ext_resource path="res://addons/Ren/nodes/ren_var_label.gd" type="Script" id=4]
 [ext_resource path="res://addons/Ren/icons/ren_var_label.svg" type="Texture" id=5]
 [ext_resource path="res://scenes/gui/QuickMenuButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/gui/SlotBox.gd" type="Script" id=7]
+[ext_resource path="res://scenes/gui/SlotBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ubuntu-font-family/Ubuntu-B.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://scenes/gui/Labels/slot.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/gui/History.gd" type="Script" id=10]
-[ext_resource path="res://scenes/gui/HistoryItem.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/gui/QuestsBox.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/gui/History.gd" type="Script" id=9]
+[ext_resource path="res://scenes/gui/HistoryItem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/gui/QuestsBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/gui/Labels/dialogue_text.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -138,6 +138,7 @@ type = "str"
 
 [node name="Navigation" type="Panel" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -154,7 +155,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Label" parent="Navigation" index="0" instance=ExtResource( 3 )]
 
-margin_right = 1028.0
+margin_right = 205.0
 margin_bottom = 65.0
 rect_clip_content = false
 text = "Pause"
@@ -166,9 +167,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 101.0
-margin_right = 140.0
-margin_bottom = 513.0
+margin_left = 6.0
+margin_top = 60.0
+margin_right = 146.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -186,6 +188,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 140.0
+margin_bottom = 54.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -201,34 +204,30 @@ margin_top = 20.0
 margin_right = 140.0
 margin_bottom = 52.0
 text = "Start"
-flat = false
 align = 0
 
 [node name="Return" parent="Navigation/VBoxContainer" index="2" instance=ExtResource( 6 )]
 
-margin_top = 20.0
+margin_top = 74.0
 margin_right = 140.0
-margin_bottom = 54.0
+margin_bottom = 108.0
 text = "Return"
-flat = false
 align = 0
 
 [node name="History" parent="Navigation/VBoxContainer" index="3" instance=ExtResource( 6 )]
 
-margin_top = 74.0
+margin_top = 128.0
 margin_right = 140.0
-margin_bottom = 108.0
+margin_bottom = 162.0
 text = "History"
-flat = false
 align = 0
 
 [node name="Quests" parent="Navigation/VBoxContainer" index="4" instance=ExtResource( 6 )]
 
-margin_top = 128.0
+margin_top = 182.0
 margin_right = 140.0
-margin_bottom = 162.0
+margin_bottom = 216.0
 text = "Quests"
-flat = false
 align = 0
 
 [node name="Continue" parent="Navigation/VBoxContainer" index="5" instance=ExtResource( 6 )]
@@ -238,166 +237,57 @@ margin_top = 20.0
 margin_right = 140.0
 margin_bottom = 52.0
 text = "Continue"
-flat = false
 align = 0
 
 [node name="Load" parent="Navigation/VBoxContainer" index="6" instance=ExtResource( 6 )]
 
-margin_top = 182.0
+margin_top = 236.0
 margin_right = 140.0
-margin_bottom = 216.0
+margin_bottom = 270.0
 text = "Load"
-flat = false
 align = 0
 
 [node name="Save" parent="Navigation/VBoxContainer" index="7" instance=ExtResource( 6 )]
 
-margin_top = 236.0
+margin_top = 290.0
 margin_right = 140.0
-margin_bottom = 270.0
+margin_bottom = 324.0
 text = "Save"
-flat = false
 align = 0
 
 [node name="Preferences" parent="Navigation/VBoxContainer" index="8" instance=ExtResource( 6 )]
 
-margin_top = 290.0
+margin_top = 344.0
 margin_right = 140.0
-margin_bottom = 324.0
+margin_bottom = 378.0
 text = "Options"
-flat = false
 align = 0
 
 [node name="About" parent="Navigation/VBoxContainer" index="9" instance=ExtResource( 6 )]
 
-margin_top = 344.0
+margin_top = 398.0
 margin_right = 140.0
-margin_bottom = 378.0
+margin_bottom = 432.0
 text = "About"
-flat = false
 align = 0
 
 [node name="Help" parent="Navigation/VBoxContainer" index="10" instance=ExtResource( 6 )]
 
-margin_top = 398.0
+margin_top = 452.0
 margin_right = 140.0
-margin_bottom = 432.0
+margin_bottom = 486.0
 text = "Help"
-flat = false
 align = 0
 
 [node name="Quit" parent="Navigation/VBoxContainer" index="11" instance=ExtResource( 6 )]
 
-margin_top = 452.0
+margin_top = 506.0
 margin_right = 140.0
-margin_bottom = 486.0
+margin_bottom = 540.0
 text = "Quit"
-flat = false
 align = 0
 
-[node name="SlotBox" type="VBoxContainer" parent="." index="3"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 257.0
-margin_top = 13.0
-margin_right = 959.0
-margin_bottom = 545.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-script = ExtResource( 7 )
-
-[node name="Title" type="Label" parent="SlotBox" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 702.0
-margin_bottom = 54.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "Save/Load"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="GridContainer" type="GridContainer" parent="SlotBox" index="1"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 58.0
-margin_right = 702.0
-margin_bottom = 532.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 3
-_sections_unfolded = [ "Grow Direction", "Rect", "Size Flags" ]
-
-[node name="1" parent="SlotBox/GridContainer" index="0" instance=ExtResource( 9 )]
-
-margin_right = 231.0
-margin_bottom = 235.0
-rect_clip_content = false
-
-[node name="2" parent="SlotBox/GridContainer" index="1" instance=ExtResource( 9 )]
-
-margin_left = 235.0
-margin_right = 466.0
-margin_bottom = 235.0
-rect_clip_content = false
-
-[node name="3" parent="SlotBox/GridContainer" index="2" instance=ExtResource( 9 )]
-
-margin_left = 470.0
-margin_right = 701.0
-margin_bottom = 235.0
-rect_clip_content = false
-
-[node name="4" parent="SlotBox/GridContainer" index="3" instance=ExtResource( 9 )]
-
-margin_top = 239.0
-margin_right = 231.0
-margin_bottom = 474.0
-rect_clip_content = false
-
-[node name="5" parent="SlotBox/GridContainer" index="4" instance=ExtResource( 9 )]
-
-margin_left = 235.0
-margin_top = 239.0
-margin_right = 466.0
-margin_bottom = 474.0
-rect_clip_content = false
-
-[node name="6" parent="SlotBox/GridContainer" index="5" instance=ExtResource( 9 )]
-
-margin_left = 470.0
-margin_top = 239.0
-margin_right = 701.0
-margin_bottom = 474.0
-rect_clip_content = false
+[node name="SlotBox" parent="." index="3" instance=ExtResource( 7 )]
 
 [node name="HistoryBox" type="VBoxContainer" parent="." index="4"]
 
@@ -479,17 +369,107 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 alignment = 0
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Size Flags", "custom_constants" ]
-HistoryItemTemplate = ExtResource( 11 )
+HistoryItemTemplate = ExtResource( 10 )
 
-[node name="QuestsBox" parent="." index="5" instance=ExtResource( 12 )]
+[node name="QuestsBox" parent="." index="5" instance=ExtResource( 11 )]
 
 visible = false
 margin_left = 201.0
 margin_top = 2.0
 margin_right = 1025.0
 margin_bottom = 607.0
+
+[node name="QuitBox" type="Control" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 257.0
+margin_top = 11.0
+margin_right = 959.0
+margin_bottom = 545.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Title" type="Label" parent="QuitBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 702.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Text" parent="QuitBox" index="1" instance=ExtResource( 12 )]
+
+anchor_right = 1.0
+margin_top = 189.0
+margin_right = 0.0
+margin_bottom = 229.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_text = "[center]Do you realy want to quit?[/center]
+"
+text = "Do you realy want to quit?
+"
+selection_enabled = false
+_sections_unfolded = [ "BBCode", "Grow Direction", "Rect", "Size Flags", "custom_colors", "custom_fonts" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuitBox" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -11.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="Yes" parent="QuitBox/HBoxContainer" index="0" instance=ExtResource( 6 )]
+
+margin_right = 349.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="No" parent="QuitBox/HBoxContainer" index="1" instance=ExtResource( 6 )]
+
+margin_left = 353.0
+margin_right = 702.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+text = "No"
 
 [connection signal="pressed" from="Navigation/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 
@@ -502,5 +482,11 @@ margin_bottom = 607.0
 [connection signal="pressed" from="Navigation/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 
 [connection signal="pressed" from="Navigation/VBoxContainer/Load" to="." method="_on_Load_pressed"]
+
+[connection signal="pressed" from="Navigation/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="QuitBox/HBoxContainer/Yes" to="." method="_on_Quit_Yes_pressed"]
+
+[connection signal="pressed" from="QuitBox/HBoxContainer/No" to="." method="_on_Return_pressed"]
 
 

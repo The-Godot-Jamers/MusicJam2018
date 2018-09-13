@@ -17,14 +17,14 @@ func show_page(node):
 
 func save_menu(screenshot):
 	show_page($SlotBox)
-	$SlotBox/Title.text="Save"
+	$SlotBox/Title.text = "Save"
 	$SlotBox.savebox()
-	$SlotBox.screenshot=screenshot
+	$SlotBox.screenshot = screenshot
 	show()
 
 func load_menu():
 	show_page($SlotBox)
-	$SlotBox/Title.text="Load"
+	$SlotBox/Title.text = "Load"
 	$SlotBox.loadbox()
 	show()
 
@@ -35,7 +35,9 @@ func history_menu():
 func _on_Screens_visibility_changed():
 	if visible:
 		in_game_gui.hide()
+		get_tree().paused = true
 	else:
+		get_tree().paused = false
 		in_game_gui.show()
 
 
@@ -74,3 +76,14 @@ func _on_Continue_pressed():
 func _on_Quests_pressed():
 	show_page($QuestsBox)
 	show()
+
+
+func _on_Quit_pressed():
+	show_page($QuitBox)
+	show()
+
+
+func _on_Quit_Yes_pressed():
+	get_tree().quit()
+
+
