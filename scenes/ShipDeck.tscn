@@ -8,8 +8,8 @@
 [ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=6]
 [ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=9]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=10]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=9]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=10]
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=11]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=12]
 [ext_resource path="res://Characters/TheWitch.png" type="Texture" id=13]
@@ -34,12 +34,12 @@ extents = Vector2( 32, 32 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "New Anim",
+"name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Walk_Down",
 "speed": 6.0
@@ -500,11 +500,12 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Navigation/Player" index="2"]
 
 position = Vector2( 0.440491, 3.22958 )
+rotation = 1.5708
 scale = Vector2( 0.114382, 0.114382 )
 frames = SubResource( 4 )
-animation = "Walk_Down"
-frame = 2
+animation = "idle"
 playing = true
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
