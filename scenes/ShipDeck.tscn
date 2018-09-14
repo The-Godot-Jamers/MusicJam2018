@@ -43,7 +43,7 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[node name="ShipDeck" type="Node2D"]
+[node name="ShipDeck" type="Node2D" index="0"]
 
 [node name="Door" parent="." index="0" instance=ExtResource( 1 )]
 
