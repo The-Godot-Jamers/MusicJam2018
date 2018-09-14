@@ -4,18 +4,18 @@
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=2]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ships/2DShipStuff/MetalDialogTrigger.gd" type="Script" id=4]
-[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=5]
-[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=6]
-[ext_resource path="res://ships/2DShipStuff/MetalAvatar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Characters/TheWitch.png" type="Texture" id=8]
+[ext_resource path="res://Characters/TheWitch.png" type="Texture" id=5]
+[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=6]
+[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=7]
+[ext_resource path="res://ships/2DShipStuff/MetalAvatar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=9]
 [ext_resource path="res://ships/2DShipStuff/PlopkonAvatar.tscn" type="PackedScene" id=10]
-[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=11]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=12]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=13]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=14]
-[ext_resource path="res://ships/2DShipStuff/PlayerAvatar.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Characters/PlopkonTop.png" type="Texture" id=16]
+[ext_resource path="res://Characters/PlopkonTop.png" type="Texture" id=11]
+[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=12]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=13]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=14]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=15]
+[ext_resource path="res://ships/2DShipStuff/PlayerAvatar.tscn" type="PackedScene" id=16]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -31,12 +31,12 @@ extents = Vector2( 32, 32 )
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "Walk_Down",
 "speed": 6.0
@@ -396,7 +396,8 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="MetlaDialogTrigger" type="Area2D" parent="." index="7"]
 
-position = Vector2( 780, 234 )
+position = Vector2( 775.548, 234 )
+scale = Vector2( 1.13914, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -406,7 +407,16 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetlaDialogTrigger" index="0"]
+[node name="TheWitch" type="Sprite" parent="MetlaDialogTrigger" index="0"]
+
+position = Vector2( -6.19647, -11.4811 )
+rotation = 1.55794
+scale = Vector2( 0.0685404, 0.0601722 )
+z_index = 1
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetlaDialogTrigger" index="1"]
 
 position = Vector2( -12.6796, -2.92607 )
 build_mode = 0
@@ -416,31 +426,24 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Character" type="Node" parent="MetlaDialogTrigger" index="1"]
+[node name="Character" type="Node" parent="MetlaDialogTrigger" index="2"]
 
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 __meta__ = {
-"_editor_icon": ExtResource( 6 )
+"_editor_icon": ExtResource( 7 )
 }
 character_id = "metal"
 character_name = "The Metal Witch"
 color = Color( 0.188235, 0.172549, 0.180392, 1 )
 prefix = ""
 suffix = ""
-avatar = ExtResource( 7 )
-
-[node name="TheWitch" type="Sprite" parent="MetlaDialogTrigger" index="2"]
-
-position = Vector2( -11.511, -11.4811 )
-rotation = 1.55615
-scale = Vector2( 0.0685421, 0.0685421 )
-z_index = 1
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Z Index" ]
+avatar = ExtResource( 8 )
 
 [node name="AlienDialogTrigger" type="Area2D" parent="." index="8"]
 
-position = Vector2( 198, 258 )
+visible = false
+position = Vector2( 203.999, 258 )
+scale = Vector2( 1.18748, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -458,9 +461,9 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Character" type="Node" parent="AlienDialogTrigger" index="1"]
 
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 __meta__ = {
-"_editor_icon": ExtResource( 6 )
+"_editor_icon": ExtResource( 7 )
 }
 character_id = "alien"
 character_name = "Plopkon"
@@ -469,9 +472,18 @@ prefix = ""
 suffix = ""
 avatar = ExtResource( 10 )
 
+[node name="PlopkonTop" type="Sprite" parent="AlienDialogTrigger" index="2"]
+
+position = Vector2( 2.90442, -2.22626 )
+rotation = -1.56997
+scale = Vector2( 0.09111, 0.0767255 )
+z_index = 1
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Z Index" ]
+
 [node name="Navigation" type="Navigation2D" parent="." index="9"]
 
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
 keyboard_speed = 50.0
@@ -518,16 +530,16 @@ __meta__ = {
 
 [node name="Character" type="Node" parent="Navigation/Player" index="2"]
 
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 __meta__ = {
-"_editor_icon": ExtResource( 6 )
+"_editor_icon": ExtResource( 7 )
 }
 character_id = "player"
 character_name = "The Noob"
 color = Color( 1, 1, 1, 1 )
 prefix = ""
 suffix = ""
-avatar = ExtResource( 15 )
+avatar = ExtResource( 16 )
 
 [node name="Camera2D" type="Camera2D" parent="Navigation/Player" index="3"]
 
@@ -554,15 +566,6 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Z Index" ]
-
-[node name="PlopkonTop" type="Sprite" parent="." index="10"]
-
-position = Vector2( 207.448, 255.774 )
-rotation = -1.56981
-scale = Vector2( 0.09111, 0.09111 )
-z_index = 1
-texture = ExtResource( 16 )
 _sections_unfolded = [ "Z Index" ]
 
 
