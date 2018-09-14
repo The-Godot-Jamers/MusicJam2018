@@ -11,6 +11,16 @@ func _ready():
 	mat = $MeshInstance.get_surface_material(0)
 	base_albedo = mat.albedo_color
 
+func set_albedo(albedo):
+	base_albedo = albedo
+
+func set_mesh(mesh):
+	$MeshInstance.mesh = mesh
+
+func set_surface(surf):
+	$MeshInstance.set_surface_material(0,surf)
+	mat = surf 
+
 func _physics_process(delta):
 	#movement
 	translation.z -= speed

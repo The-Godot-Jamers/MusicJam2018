@@ -14,6 +14,7 @@ var after_intro = false
 var _after_intro
 var songs
 var extra_songs
+var asteroids = []
 
 var colors = ["#472D3C","#7A444A","A05B53","BF7958","EEA160","FFFDAF","B6D53C",
 				"71AA34","397B44","3C5956","302C2E", "5A5353","7D7071",
@@ -26,6 +27,7 @@ func _ready():
 	Ren.define("lvl", 0)
 	Ren.define("after_intro", false)
 	randomize()
+	make_asteroid_shapes()
 	songs = list_basic_music("res://music/")
 	#not yet working properly
 #	extra_songs = list_extra_music(ProjectSettings.globalize_path("res://extra_music"))
@@ -95,6 +97,8 @@ func _input(event):
 			current_camera = camera2
 #		if Input.is_action_just_pressed("3"):
 #			camera3.current = true
+	if Input.is_action_just_pressed("ui_focus_prev"):
+		get_tree().change_scene_to(lvl1)
 
 func _set_lvl(value):
 	_lvl = value
@@ -113,5 +117,56 @@ func _get_after_intro():
 	if Ren.get_value("after_intro") != null:
 		_after_intro = Ren.get_value("after_intro")
 	return _after_intro
+
+func make_asteroid_shapes():
+	for i in 4:
+		var surf = MeshDataTool.new()
+		surf.create_from_surface($asteroid_test/Planet.mesh, 0)
+		
+		
+		var max_iterations = 30  
+		for j in range(max_iterations):
+			
+			# wait a frame to prevent freezing the game
+			yield(get_tree(), "idle_frame")
+			
+			var dir = Vector3(rand_range(-1,1), rand_range(-1,1), rand_range(-1,1)).normalized()
+			
+			# push/pull all vertices (this is the slow part)
+			for i in range(surf.get_vertex_count()):
+				var v = surf.get_vertex(i)
+				var norm = surf.get_vertex_normal(i)
+				
+				var dot = norm.normalized().dot(dir)
+				var sharpness = 60  
+				dot = exp(dot*sharpness) / (exp(dot*sharpness) + 1) - 0.5 # sigmoid function
+				
+				v += dot * norm * 0.01
+				
+				surf.set_vertex(i, v)
+				
+		#also recalculate face normals (TODO smooth 'em!)
+		
+		for i in range(surf.get_face_count()):
+			
+			var v1i = surf.get_face_vertex(i,0)
+			var v2i = surf.get_face_vertex(i,1)
+			var v3i = surf.get_face_vertex(i,2)
+			
+			var v1 = surf.get_vertex(v1i)
+			var v2 = surf.get_vertex(v2i)
+			var v3 = surf.get_vertex(v3i)
+			
+			# calculate normal for this face
+			var norm = -(v2 - v1).normalized().cross((v3 - v1).normalized()).normalized()
+			
+			surf.set_vertex_normal(v1i, norm)
+			surf.set_vertex_normal(v2i, norm)
+			surf.set_vertex_normal(v3i, norm)
+		
+		# commit the mesh
+		var mmesh = ArrayMesh.new() 
+		surf.commit_to_surface(mmesh)
+		asteroids.append(mmesh)
 
 

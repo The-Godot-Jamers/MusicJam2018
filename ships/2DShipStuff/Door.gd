@@ -20,8 +20,8 @@ func _process(delta):
 	if not is_in_area:
 		return
 	
-	if not Input.is_action_just_pressed("shoot"):
-		return
+#	if not Input.is_action_just_pressed("shoot"):
+#		return
 
 	if closed:
 		active_dialog()

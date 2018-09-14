@@ -32,10 +32,15 @@ func create_lanes():
 
 func create_asteroid(pos):
 	var aster = asteroid.instance()
+	add_child(aster)
+	var mat = aster.mat
+	var albedo = aster.base_albedo
+	aster.set_mesh(Globals.asteroids[randi() % Globals.asteroids.size() ])
+	aster.set_surface(mat)
+	aster.set_albedo(albedo)
 	aster.translation = Vector3()
 	aster.translation.z = 150
 	aster.translation.x = (round($mainship.translation.x/5) * 5) + (lane_spacing * pos)
-	add_child(aster)
 
 func create_shooting_star(posx,posy):
 	var star = shooting_star.instance()
