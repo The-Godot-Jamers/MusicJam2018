@@ -138,7 +138,6 @@ type = "str"
 
 [node name="Navigation" type="Panel" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -162,15 +161,14 @@ text = "Pause"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Navigation" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 6.0
-margin_top = 60.0
-margin_right = 146.0
-margin_bottom = 600.0
+margin_left = 14.0
+margin_top = 27.0
+margin_right = 154.0
+margin_bottom = 567.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -188,7 +186,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 140.0
-margin_bottom = 54.0
+margin_bottom = 108.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -208,22 +206,23 @@ align = 0
 
 [node name="Return" parent="Navigation/VBoxContainer" index="2" instance=ExtResource( 6 )]
 
-margin_top = 74.0
+margin_top = 128.0
 margin_right = 140.0
-margin_bottom = 108.0
+margin_bottom = 162.0
 text = "Return"
 align = 0
 
 [node name="History" parent="Navigation/VBoxContainer" index="3" instance=ExtResource( 6 )]
 
-margin_top = 128.0
+margin_top = 182.0
 margin_right = 140.0
-margin_bottom = 162.0
+margin_bottom = 216.0
 text = "History"
 align = 0
 
 [node name="Quests" parent="Navigation/VBoxContainer" index="4" instance=ExtResource( 6 )]
 
+visible = false
 margin_top = 182.0
 margin_right = 140.0
 margin_bottom = 216.0
