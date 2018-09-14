@@ -4,9 +4,23 @@ func _ready():
 	dialog_id = "alien_intro"
 
 func story(dialog_name):
-	if dialog_name != dialog_id:
-		return
+	if dialog_name == "alien_intro":
+		intro()
 	
+	if dialog_name == "alien_menu":
+		match Ren.story_state:
+			"start":
+				Ren.say({
+					"who":"alien",
+					"what": "He check out the bounties and music in the brig. It should help."
+				})
+				Ren.story_state = "exit_dialog"
+			
+			"exit_dialog":
+				Window.hide()
+
+
+func intro():
 	match Ren.story_state:
 		"start":
 			Ren.say({

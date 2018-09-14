@@ -1,7 +1,7 @@
 extends "DialogTrigger.gd"
 
 func _ready():
-	dialog_id = "captian_intro"
+	dialog_id = "joe_intro"
 
 func story(dialog_name):
 	if dialog_name != dialog_id:
