@@ -1,11 +1,15 @@
 extends "DialogTrigger.gd"
 
 func _ready():
-	dialog_id = "alien_intro"
+	dialog_id = "alien_dialog"
 
 func story(dialog_name):
-	if dialog_name == "alien_intro":
+	if dialog_name != dialog_id:
+		return
+	
+	if not Globals.after_intro:
 		intro()
+		return
 	
 	if dialog_name == "alien_menu":
 		match Ren.story_state:

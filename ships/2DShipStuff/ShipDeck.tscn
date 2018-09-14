@@ -3,7 +3,7 @@
 [ext_resource path="res://ships/2DShipStuff/2DIntroShip.gd" type="Script" id=1]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=2]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=4]
+[ext_resource path="res://ships/2DShipStuff/MetalDialogTrigger.gd" type="Script" id=4]
 [ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=5]
 [ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=6]
 [ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=7]
@@ -396,7 +396,7 @@ position = Vector2( 307, -4 )
 build_mode = 0
 polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
 
-[node name="CapitanDialogTrigger" type="Area2D" parent="." index="6"]
+[node name="MetalDialogTrigger" type="Area2D" parent="." index="6"]
 
 position = Vector2( 780, 234 )
 input_pickable = true
@@ -408,19 +408,19 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CapitanDialogTrigger" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetalDialogTrigger" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Character" type="Node" parent="CapitanDialogTrigger" index="1"]
+[node name="Character" type="Node" parent="MetalDialogTrigger" index="1"]
 
 script = ExtResource( 5 )
 __meta__ = {
 "_editor_icon": ExtResource( 6 )
 }
-character_id = "capitan"
+character_id = "metal"
 character_name = "The Metal Witch"
 color = Color( 0.188235, 0.172549, 0.180392, 1 )
 prefix = ""
