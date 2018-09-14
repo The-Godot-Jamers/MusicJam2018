@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
@@ -12,25 +12,26 @@
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=10]
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=11]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=12]
+[ext_resource path="res://Characters/TheWitch.png" type="Texture" id=13]
 
-[sub_resource type="NavigationPolygon" id=4]
+[sub_resource type="NavigationPolygon" id=1]
 
 vertices = PoolVector2Array( 445.836, 54.5253, 491.351, 53.0464, 491.139, 131.042, 446.559, 131.741, 490.625, 47.5307, 524.3, 48.274, 514.501, 64.999, 494.367, 64.6274, 492.942, 59.2382, 495.375, 122.684, 524.336, 122.684, 524.336, 140.561, 494.666, 140.684, 672.592, 139.984, 672.964, 135.629, 672.722, 142.708, 671.995, 134.871, 672.592, 123.953, 647.757, 66.1081, 641.67, 45.1134, 679.024, 45.3782, 671.268, 66.3609, 642.666, 142.455, 644.754, 139.739, 642.666, 122.736, 644.597, 123.953, 671.51, 123.242, 724.35, 46.1366, 725.319, 134.871 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 14, 15 ), PoolIntArray( 14, 13, 16, 17 ), PoolIntArray( 18, 19, 20, 21 ), PoolIntArray( 13, 15, 22, 23 ), PoolIntArray( 23, 22, 24, 25 ), PoolIntArray( 25, 24, 26, 17 ), PoolIntArray( 21, 20, 27, 28, 14, 17 ), PoolIntArray( 17, 26, 21 ) ]
 outlines = [ PoolVector2Array( 445.836, 54.5253, 491.351, 53.0464, 491.139, 131.042, 446.559, 131.741 ), PoolVector2Array( 492.942, 59.2382, 494.367, 64.6274, 514.501, 64.999, 524.3, 48.274, 490.625, 47.5307 ), PoolVector2Array( 495.375, 122.684, 524.336, 122.684, 524.336, 140.561, 494.666, 140.684 ), PoolVector2Array( 644.754, 139.739, 644.597, 123.953, 672.592, 123.953, 671.995, 134.871, 672.592, 139.984 ), PoolVector2Array( 641.67, 45.1134, 679.024, 45.3782, 724.35, 46.1366, 725.319, 134.871, 672.964, 135.629, 672.237, 142.96, 642.666, 142.455, 642.666, 122.736, 671.51, 123.242, 671.268, 66.3609, 647.757, 66.1081 ) ]
 
-[sub_resource type="NavigationPolygon" id=1]
+[sub_resource type="NavigationPolygon" id=2]
 
 vertices = PoolVector2Array( 36, 330, 36, 168, 555, 168, 552, 330, 555, 141, 441, 141, 441, 51, 723, 51, 723, 141, 633, 141, 633, 168, 627, 330, 906, 168, 906, 330, 627, 360, 552, 360, 726, 360, 726, 450, 444, 450, 444, 360 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 7, 8, 9 ), PoolIntArray( 4, 7, 9, 2 ), PoolIntArray( 2, 9, 10, 11, 3 ), PoolIntArray( 10, 12, 13, 11 ), PoolIntArray( 3, 11, 14, 15 ), PoolIntArray( 14, 16, 17, 18 ), PoolIntArray( 15, 14, 18 ), PoolIntArray( 15, 18, 19 ) ]
 outlines = [ PoolVector2Array( 36, 168, 555, 168, 555, 141, 441, 141, 441, 51, 723, 51, 723, 141, 633, 141, 633, 168, 906, 168, 906, 330, 627, 330, 627, 360, 726, 360, 726, 450, 444, 450, 444, 360, 552, 360, 552, 330, 36, 330 ) ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [  ],
@@ -453,19 +454,20 @@ script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
 keyboard_speed = 50.0
+rot_speed = 0.5
 
 [node name="Funiture" type="NavigationPolygonInstance" parent="Navigation" index="0"]
 
 position = Vector2( 8.38234, 5.93543 )
 scale = Vector2( 0.981199, 0.940758 )
 z_as_relative = false
-navpoly = SubResource( 4 )
+navpoly = SubResource( 1 )
 enabled = true
 _sections_unfolded = [ "Z Index" ]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation" index="1"]
 
-navpoly = SubResource( 1 )
+navpoly = SubResource( 2 )
 enabled = true
 __meta__ = {
 "_edit_lock_": true
@@ -490,7 +492,7 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="1"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -499,9 +501,8 @@ __meta__ = {
 
 position = Vector2( 0.440491, 3.22958 )
 scale = Vector2( 0.114382, 0.114382 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "Walk_Down"
-frame = 3
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -516,5 +517,12 @@ _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="TheWitch" type="Sprite" parent="." index="10"]
+
+position = Vector2( 768.489, 222.959 )
+rotation = 1.55615
+scale = Vector2( 0.0685421, 0.0685421 )
+texture = ExtResource( 13 )
 
 
