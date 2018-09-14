@@ -3,7 +3,7 @@
 [ext_resource path="res://gfx/ringed-planet (1).png" type="Texture" id=1]
 [ext_resource path="res://scenes/splash.gd" type="Script" id=2]
 
-[node name="splash" type="Sprite"]
+[node name="splash" type="Sprite" index="0"]
 
 position = Vector2( 512, 150 )
 scale = Vector2( 0.3, 0.3 )
