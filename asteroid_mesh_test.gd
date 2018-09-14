@@ -62,6 +62,7 @@ func make_asteroid_shape():
 	# commit the mesh
 	var mmesh = ArrayMesh.new() 
 	surf.commit_to_surface(mmesh)
+	print(mmesh.get_faces().size())
 	$Planet.mesh = mmesh
 	
 
