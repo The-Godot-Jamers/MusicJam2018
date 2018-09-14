@@ -1,16 +1,19 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=2]
+[ext_resource path="res://ships/2DShipStuff/MetalDialogTrigger.gd" type="Script" id=2]
 [ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=3]
 [ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=4]
-[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=5]
-[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=6]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=7]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=8]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=9]
-[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=10]
-[ext_resource path="res://Characters/TheWitch.png" type="Texture" id=11]
+[ext_resource path="res://ships/2DShipStuff/MetalAvatar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=6]
+[ext_resource path="res://ships/2DShipStuff/PlopkonAvatar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=8]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=9]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=10]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=11]
+[ext_resource path="res://ships/2DShipStuff/PlayerAvatar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=13]
+[ext_resource path="res://Characters/TheWitch.png" type="Texture" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -32,18 +35,18 @@ extents = Vector2( 32, 32 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Walk_Down",
 "speed": 6.0
 } ]
 
-[node name="ShipDeck" type="Node2D"]
+[node name="ShipDeck" type="Node2D" index="0"]
 
 [node name="Door" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -76,6 +79,8 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 closed = true
 
 [node name="Walls" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="Wall" type="StaticBody2D" parent="Walls" index="0"]
 
@@ -370,9 +375,8 @@ position = Vector2( 307, -4 )
 build_mode = 0
 polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
 
-[node name="CapitanDialogTrigger" type="Area2D" parent="." index="5"]
+[node name="MetlaDialogTrigger" type="Area2D" parent="." index="5"]
 
-editor/display_folded = true
 position = Vector2( 780, 234 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -383,28 +387,27 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CapitanDialogTrigger" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetlaDialogTrigger" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Character" type="Node" parent="CapitanDialogTrigger" index="1"]
+[node name="Character" type="Node" parent="MetlaDialogTrigger" index="1"]
 
 script = ExtResource( 3 )
 __meta__ = {
 "_editor_icon": ExtResource( 4 )
 }
-character_id = "capitan"
-character_name = "Capitan"
-color = Color( 1, 0.984375, 0, 1 )
+character_id = "metal"
+character_name = "The Metal Witch"
+color = Color( 0.188235, 0.172549, 0.180392, 1 )
 prefix = ""
 suffix = ""
-avatar = null
+avatar = ExtResource( 5 )
 
 [node name="AlienDialogTrigger" type="Area2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 198, 258 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -413,7 +416,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="0"]
 
@@ -427,16 +430,16 @@ script = ExtResource( 3 )
 __meta__ = {
 "_editor_icon": ExtResource( 4 )
 }
-character_id = ""
-character_name = ""
+character_id = "alien"
+character_name = "Plopkon"
 color = Color( 0, 0.501961, 0.501961, 1 )
 prefix = ""
 suffix = ""
-avatar = null
+avatar = ExtResource( 7 )
 
 [node name="Navigation" type="Navigation2D" parent="." index="7"]
 
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
 keyboard_speed = 50.0
@@ -490,11 +493,24 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Character" type="Node" parent="Navigation/Player" index="2"]
+
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+character_id = "player"
+character_name = "The Noob"
+color = Color( 1, 1, 1, 1 )
+prefix = ""
+suffix = ""
+avatar = ExtResource( 12 )
+
 [node name="TheIntroShip_Draft" type="Sprite" parent="." index="8"]
 
 position = Vector2( 503.344, 288.593 )
 scale = Vector2( 0.30392, 0.30392 )
-texture = ExtResource( 10 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -505,6 +521,6 @@ __meta__ = {
 position = Vector2( 768.489, 222.959 )
 rotation = 1.55615
 scale = Vector2( 0.0685421, 0.0685421 )
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
 
 
