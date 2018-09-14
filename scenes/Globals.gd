@@ -3,7 +3,7 @@ extends Node
 var lvl = 0 setget _set_lvl, _get_lvl
 var _lvl
 var lvl1 = preload("res://scenes/space_level.tscn")
-var intro = preload("res://ships/2DShipStuff/ShipDeck.tscn")
+var intro = preload("res://scenes/ShipDeck.tscn")
 var camera1
 var camera2
 var camera3

@@ -3,8 +3,10 @@ extends Spatial
 
 func _ready():
 	Globals.lvl = 5
-	#PrimitiveMesh.material(set_shader_param("rand_seed", rand_range(-0.1,0.1)))
+	#print($Planet.mesh.surface_get_material(0))
+	#$Planet.mesh.surface_get_material(0).set_shader_param("rand_seed", rand_range(0.1,0.9))
 	make_asteroid_shape()
+	
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -17,7 +19,7 @@ func make_asteroid_shape():
 	surf.create_from_surface($Planet.mesh, 0)
 	
 	
-	var max_iterations = 230  
+	var max_iterations = 80  
 	for j in range(max_iterations):
 		
 		# wait a frame to prevent freezing the game
@@ -31,16 +33,13 @@ func make_asteroid_shape():
 			var norm = surf.get_vertex_normal(i)
 			
 			var dot = norm.normalized().dot(dir)
-			var sharpness = 80  
+			var sharpness = 60  
 			dot = exp(dot*sharpness) / (exp(dot*sharpness) + 1) - 0.5 # sigmoid function
 			
 			v += dot * norm * 0.01
 			
 			surf.set_vertex(i, v)
 			
-
-
-
 	#also recalculate face normals (TODO smooth 'em!)
 	
 	for i in range(surf.get_face_count()):
@@ -60,9 +59,6 @@ func make_asteroid_shape():
 		surf.set_vertex_normal(v2i, norm)
 		surf.set_vertex_normal(v3i, norm)
 	
-	
-
-
 	# commit the mesh
 	var mmesh = ArrayMesh.new() 
 	surf.commit_to_surface(mmesh)

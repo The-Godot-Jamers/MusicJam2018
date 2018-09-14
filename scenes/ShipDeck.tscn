@@ -503,6 +503,7 @@ position = Vector2( 0.440491, 3.22958 )
 scale = Vector2( 0.114382, 0.114382 )
 frames = SubResource( 4 )
 animation = "Walk_Down"
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
