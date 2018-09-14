@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
-[ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=3]
-[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=4]
-[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=5]
-[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=6]
-[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
-[ext_resource path="res://scenes/warranty.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ships/2DShipStuff/2DIntroShip.gd" type="Script" id=1]
+[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=2]
+[ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=4]
+[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=5]
+[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=6]
+[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=7]
+[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=8]
+[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://scenes/warranty.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -62,34 +63,36 @@ _sections_unfolded = [ "Resource", "shader_param" ]
 
 [node name="ShipDeck" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
+
 [node name="Blueprint" type="Sprite" parent="." index="0"]
 
 position = Vector2( 0, -70 )
 scale = Vector2( 0.30285, 0.302394 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Door" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Door" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 555, 147 )
 scale = Vector2( 0.30285, 0.302394 )
 
-[node name="Door2" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Door2" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 552, 339 )
 scale = Vector2( 0.30285, 0.302394 )
 
-[node name="Door3" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Door3" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 345, 333 )
 scale = Vector2( 0.30285, 0.302394 )
 closed = true
 
-[node name="Door4" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Door4" parent="." index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 348, 150 )
 scale = Vector2( 0.30285, 0.302394 )
@@ -395,7 +398,6 @@ polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
 
 [node name="CapitanDialogTrigger" type="Area2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 780, 234 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -404,7 +406,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CapitanDialogTrigger" index="0"]
 
@@ -414,20 +416,19 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Character" type="Node" parent="CapitanDialogTrigger" index="1"]
 
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 __meta__ = {
-"_editor_icon": ExtResource( 5 )
+"_editor_icon": ExtResource( 6 )
 }
 character_id = "capitan"
-character_name = "Capitan"
-color = Color( 1, 0.984375, 0, 1 )
+character_name = "The Metal Witch"
+color = Color( 0.188235, 0.172549, 0.180392, 1 )
 prefix = ""
 suffix = ""
 avatar = null
 
 [node name="AlienDialogTrigger" type="Area2D" parent="." index="7"]
 
-editor/display_folded = true
 position = Vector2( 198, 258 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -436,7 +437,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="0"]
 
@@ -446,20 +447,20 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Character" type="Node" parent="AlienDialogTrigger" index="1"]
 
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 __meta__ = {
-"_editor_icon": ExtResource( 5 )
+"_editor_icon": ExtResource( 6 )
 }
-character_id = ""
-character_name = ""
-color = Color( 0, 0.501961, 0.501961, 1 )
+character_id = "alien"
+character_name = "Plopkon"
+color = Color( 0.223529, 0.482353, 0.266667, 1 )
 prefix = ""
 suffix = ""
 avatar = null
 
 [node name="Navigation" type="Navigation2D" parent="." index="8"]
 
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
 keyboard_speed = 50.0
@@ -485,7 +486,7 @@ __meta__ = {
 
 [node name="icon" type="Sprite" parent="Navigation/Player" index="0"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="1"]
 
@@ -536,14 +537,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="warranty" parent="bounties/hbox" index="0" instance=ExtResource( 9 )]
+[node name="warranty" parent="bounties/hbox" index="0" instance=ExtResource( 10 )]
 
 material = SubResource( 4 )
 margin_right = 300.0
 margin_bottom = 300.0
 rect_scale = Vector2( 1, 1 )
 
-[node name="warranty2" parent="bounties/hbox" index="1" instance=ExtResource( 9 )]
+[node name="warranty2" parent="bounties/hbox" index="1" instance=ExtResource( 10 )]
 
 material = SubResource( 5 )
 margin_left = 400.0
@@ -551,7 +552,7 @@ margin_right = 700.0
 margin_bottom = 300.0
 rect_scale = Vector2( 1, 1 )
 
-[node name="warranty3" parent="bounties/hbox" index="2" instance=ExtResource( 9 )]
+[node name="warranty3" parent="bounties/hbox" index="2" instance=ExtResource( 10 )]
 
 material = SubResource( 6 )
 margin_left = 800.0
