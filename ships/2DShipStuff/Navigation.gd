@@ -67,27 +67,27 @@ func handle_input(delta):
 		$Player.look_at(mouse_pos)
 		return
 
-
-	if Input.is_action_pressed("up"):
-		new_pos.y -= keyboard_speed * delta
-		$Player.rotation_degrees = 180
-		nav_to(new_pos)
-		return
-	
-	if Input.is_action_pressed("down"):
-		new_pos.y += keyboard_speed * delta
-		$Player.rotation_degrees = 0
-		nav_to(new_pos)
-		return
-	
-	if Input.is_action_pressed("right"):
-		new_pos.x += keyboard_speed * delta
-		$Player.rotation_degrees = 270
-		nav_to(new_pos)
-		return
-	
-	if Input.is_action_pressed("left"):
-		new_pos.x -= keyboard_speed * delta
-		$Player.rotation_degrees = 90
-		nav_to(new_pos)
-		return
+#
+#	if Input.is_action_pressed("up"):
+#		new_pos.y -= keyboard_speed * delta
+#		$Player.rotation_degrees = 180
+#		nav_to(new_pos)
+#		return
+#
+#	if Input.is_action_pressed("down"):
+#		new_pos.y += keyboard_speed * delta
+#		$Player.rotation_degrees = 0
+#		nav_to(new_pos)
+#		return
+#
+#	if Input.is_action_pressed("right"):
+#		new_pos.x += keyboard_speed * delta
+#		$Player.rotation_degrees = 270
+#		nav_to(new_pos)
+#		return
+#
+#	if Input.is_action_pressed("left"):
+#		new_pos.x -= keyboard_speed * delta
+#		$Player.rotation_degrees = 90
+#		nav_to(new_pos)
+#		return
