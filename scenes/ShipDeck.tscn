@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://gfx/spacebg.PNG" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=13]
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=14]
 [ext_resource path="res://ships/2DShipStuff/PlayerAvatar.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Characters/PlopkonTop.png" type="Texture" id=16]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -41,7 +42,7 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[node name="ShipDeck" type="Node2D"]
+[node name="ShipDeck" type="Node2D" index="0"]
 
 [node name="bg" type="Sprite" parent="." index="0"]
 
@@ -345,9 +346,56 @@ build_mode = 0
 polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="MetlaDialogTrigger" type="Area2D" parent="." index="7"]
+[node name="Wall15" type="StaticBody2D" parent="Walls" index="12"]
 
 editor/display_folded = true
+position = Vector2( 771.708, 225.461 )
+rotation = 1.5708
+scale = Vector2( 0.236815, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall15" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Wall16" type="StaticBody2D" parent="Walls" index="13"]
+
+editor/display_folded = true
+position = Vector2( 203.183, 257.07 )
+rotation = 1.5708
+scale = Vector2( 0.236815, 0.966694 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall16" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="MetlaDialogTrigger" type="Area2D" parent="." index="7"]
+
 position = Vector2( 780, 234 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -364,6 +412,9 @@ position = Vector2( -12.6796, -2.92607 )
 build_mode = 0
 polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
 _sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Character" type="Node" parent="MetlaDialogTrigger" index="1"]
 
@@ -380,14 +431,15 @@ avatar = ExtResource( 7 )
 
 [node name="TheWitch" type="Sprite" parent="MetlaDialogTrigger" index="2"]
 
-position = Vector2( -11.511, -11.041 )
+position = Vector2( -11.511, -11.4811 )
 rotation = 1.55615
 scale = Vector2( 0.0685421, 0.0685421 )
+z_index = 1
 texture = ExtResource( 8 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="AlienDialogTrigger" type="Area2D" parent="." index="8"]
 
-editor/display_folded = true
 position = Vector2( 198, 258 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -479,6 +531,7 @@ avatar = ExtResource( 15 )
 
 [node name="Camera2D" type="Camera2D" parent="Navigation/Player" index="3"]
 
+z_index = 1
 anchor_mode = 1
 rotating = false
 current = true
@@ -501,5 +554,15 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+_sections_unfolded = [ "Z Index" ]
+
+[node name="PlopkonTop" type="Sprite" parent="." index="10"]
+
+position = Vector2( 207.448, 255.774 )
+rotation = -1.56981
+scale = Vector2( 0.09111, 0.09111 )
+z_index = 1
+texture = ExtResource( 16 )
+_sections_unfolded = [ "Z Index" ]
 
 
