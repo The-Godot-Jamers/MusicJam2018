@@ -42,7 +42,7 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[node name="ShipDeck" type="Node2D" index="0"]
+[node name="ShipDeck" type="Node2D"]
 
 [node name="bg" type="Sprite" parent="." index="0"]
 
@@ -346,10 +346,22 @@ build_mode = 0
 polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Wall15" type="StaticBody2D" parent="Walls" index="12"]
+[node name="MetlaDialogTrigger" type="Area2D" parent="." index="7"]
+
+position = Vector2( 780, 234 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="Wall15" type="StaticBody2D" parent="MetlaDialogTrigger" index="0"]
 
 editor/display_folded = true
-position = Vector2( 771.708, 225.461 )
+position = Vector2( -8.29199, -8.539 )
 rotation = 1.5708
 scale = Vector2( 0.236815, 1 )
 input_pickable = false
@@ -364,49 +376,13 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall15" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetlaDialogTrigger/Wall15" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Wall16" type="StaticBody2D" parent="Walls" index="13"]
-
-editor/display_folded = true
-position = Vector2( 203.183, 257.07 )
-rotation = 1.5708
-scale = Vector2( 0.236815, 0.966694 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall16" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="MetlaDialogTrigger" type="Area2D" parent="." index="7"]
-
-position = Vector2( 780, 234 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 4 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetlaDialogTrigger" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetlaDialogTrigger" index="1"]
 
 position = Vector2( -12.6796, -2.92607 )
 build_mode = 0
@@ -416,7 +392,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Character" type="Node" parent="MetlaDialogTrigger" index="1"]
+[node name="Character" type="Node" parent="MetlaDialogTrigger" index="2"]
 
 script = ExtResource( 5 )
 __meta__ = {
@@ -429,7 +405,7 @@ prefix = ""
 suffix = ""
 avatar = ExtResource( 7 )
 
-[node name="TheWitch" type="Sprite" parent="MetlaDialogTrigger" index="2"]
+[node name="TheWitch" type="Sprite" parent="MetlaDialogTrigger" index="3"]
 
 position = Vector2( -11.511, -11.4811 )
 rotation = 1.55615
@@ -450,13 +426,37 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 9 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="0"]
+[node name="Wall16" type="StaticBody2D" parent="AlienDialogTrigger" index="0"]
+
+editor/display_folded = true
+position = Vector2( 5.183, -0.929993 )
+rotation = 1.5708
+scale = Vector2( 0.236815, 0.966694 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger/Wall16" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Character" type="Node" parent="AlienDialogTrigger" index="1"]
+[node name="Character" type="Node" parent="AlienDialogTrigger" index="2"]
 
 script = ExtResource( 5 )
 __meta__ = {
@@ -558,7 +558,7 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="PlopkonTop" type="Sprite" parent="." index="10"]
 
-position = Vector2( 207.448, 255.774 )
+position = Vector2( 207.448, 256.262 )
 rotation = -1.56981
 scale = Vector2( 0.09111, 0.09111 )
 z_index = 1
