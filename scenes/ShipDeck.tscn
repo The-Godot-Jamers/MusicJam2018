@@ -1,18 +1,16 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Blueprint.png" type="Texture" id=1]
-[ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=3]
-[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=4]
-[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=5]
-[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=6]
-[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=9]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=10]
-[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=11]
-[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=12]
-[ext_resource path="res://Characters/TheWitch.png" type="Texture" id=13]
+[ext_resource path="res://ships/2DShipStuff/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ships/2DShipStuff/CapitanDialogTrigger.gd" type="Script" id=2]
+[ext_resource path="res://addons/Ren/nodes/character.gd" type="Script" id=3]
+[ext_resource path="res://addons/Ren/icons/ren_character.svg" type="Texture" id=4]
+[ext_resource path="res://ships/2DShipStuff/AlienDialogTrigger.gd" type="Script" id=5]
+[ext_resource path="res://ships/2DShipStuff/Navigation.gd" type="Script" id=6]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A2.png" type="Texture" id=7]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=8]
+[ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=9]
+[ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=10]
+[ext_resource path="res://Characters/TheWitch.png" type="Texture" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -34,46 +32,34 @@ extents = Vector2( 32, 32 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "New Anim",
+"name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Walk_Down",
 "speed": 6.0
 } ]
 
-[node name="ShipDeck" type="Node2D" index="0"]
+[node name="ShipDeck" type="Node2D"]
 
-[node name="Blueprint" type="Sprite" parent="." index="0"]
-
-position = Vector2( 0, -70 )
-scale = Vector2( 0.30285, 0.302394 )
-z_index = -1
-texture = ExtResource( 1 )
-centered = false
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Door" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Door" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 555, 147 )
 scale = Vector2( 0.30285, 0.302394 )
 z_index = 1
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Door2" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Door2" parent="." index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 552, 339 )
 scale = Vector2( 0.30285, 0.302394 )
 z_index = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Door3" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Door3" parent="." index="2" instance=ExtResource( 1 )]
 
 position = Vector2( 345, 333 )
 scale = Vector2( 0.30285, 0.302394 )
@@ -81,7 +67,7 @@ z_index = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
 closed = true
 
-[node name="Door4" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Door4" parent="." index="3" instance=ExtResource( 1 )]
 
 position = Vector2( 348, 150 )
 scale = Vector2( 0.30285, 0.302394 )
@@ -89,7 +75,7 @@ z_index = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
 closed = true
 
-[node name="Walls" type="Node2D" parent="." index="5"]
+[node name="Walls" type="Node2D" parent="." index="4"]
 
 [node name="Wall" type="StaticBody2D" parent="Walls" index="0"]
 
@@ -384,7 +370,7 @@ position = Vector2( 307, -4 )
 build_mode = 0
 polygon = PoolVector2Array( -69, -15, 57, -15, 57, 12, -69, 12 )
 
-[node name="CapitanDialogTrigger" type="Area2D" parent="." index="6"]
+[node name="CapitanDialogTrigger" type="Area2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 780, 234 )
@@ -395,7 +381,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CapitanDialogTrigger" index="0"]
 
@@ -405,9 +391,9 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Character" type="Node" parent="CapitanDialogTrigger" index="1"]
 
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 __meta__ = {
-"_editor_icon": ExtResource( 5 )
+"_editor_icon": ExtResource( 4 )
 }
 character_id = "capitan"
 character_name = "Capitan"
@@ -416,7 +402,7 @@ prefix = ""
 suffix = ""
 avatar = null
 
-[node name="AlienDialogTrigger" type="Area2D" parent="." index="7"]
+[node name="AlienDialogTrigger" type="Area2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 198, 258 )
@@ -427,7 +413,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AlienDialogTrigger" index="0"]
 
@@ -437,9 +423,9 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Character" type="Node" parent="AlienDialogTrigger" index="1"]
 
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 __meta__ = {
-"_editor_icon": ExtResource( 5 )
+"_editor_icon": ExtResource( 4 )
 }
 character_id = ""
 character_name = ""
@@ -448,9 +434,9 @@ prefix = ""
 suffix = ""
 avatar = null
 
-[node name="Navigation" type="Navigation2D" parent="." index="8"]
+[node name="Navigation" type="Navigation2D" parent="." index="7"]
 
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
 keyboard_speed = 50.0
@@ -484,45 +470,41 @@ collision_mask = 1
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Z Index" ]
 
-[node name="icon" type="Sprite" parent="Navigation/Player" index="0"]
-
-visible = false
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/Player" index="0"]
 
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Navigation/Player" index="2"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Navigation/Player" index="1"]
 
 position = Vector2( 0.440491, 3.22958 )
+rotation = 1.5708
 scale = Vector2( 0.114382, 0.114382 )
 frames = SubResource( 4 )
-animation = "Walk_Down"
+animation = "idle"
 playing = true
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TheIntroShip_Draft" type="Sprite" parent="." index="9"]
+[node name="TheIntroShip_Draft" type="Sprite" parent="." index="8"]
 
 position = Vector2( 503.344, 288.593 )
 scale = Vector2( 0.30392, 0.30392 )
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TheWitch" type="Sprite" parent="." index="10"]
+[node name="TheWitch" type="Sprite" parent="." index="9"]
 
 position = Vector2( 768.489, 222.959 )
 rotation = 1.55615
 scale = Vector2( 0.0685421, 0.0685421 )
-texture = ExtResource( 13 )
+texture = ExtResource( 11 )
 
 

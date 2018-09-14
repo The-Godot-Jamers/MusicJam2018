@@ -2,7 +2,7 @@ extends Navigation2D
 
 
 export var speed = 500.0
-export var keyboard_speed = 200.0
+export var keyboard_speed = 800.0
 export var rot_speed = 0.5
 
 var begin = Vector2()
@@ -17,8 +17,10 @@ func _process(delta):
 
 	if not process_path:
 		return
+		$Player/AnimatedSprite.play("idle")
 	
 	if path.size() > 1:
+		$Player/AnimatedSprite.play("Walk_Down")
 		var to_walk = delta * speed
 		while to_walk > 0 and path.size() >= 2:
 			var pfrom = path[path.size() - 1]
@@ -38,7 +40,9 @@ func _process(delta):
 		if path.size() < 2:
 			path = []
 			process_path = false
+			$Player/AnimatedSprite.play("idle")
 	else:
+		$Player/AnimatedSprite.play("idle")
 		process_path = false
 
 func _update_path():

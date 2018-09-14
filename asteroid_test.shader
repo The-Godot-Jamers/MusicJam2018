@@ -14,19 +14,15 @@ uniform vec3 uv1_scale;
 uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
-uniform float height_range;
-uniform float rand_seed;
 
-varying float rando;
-
-
+uniform float height_range = 0.5;
 
 void vertex() {
 	UV=UV*uv1_scale.xy+uv1_offset.xy;
-	vec3 ball = VERTEX;
-	
-    float h = texture(texture_albedo, UV).g + (height_range * rand_seed);
-    VERTEX = ball * vec3(h);
+    vec3 mod = VERTEX;
+    vec3 h = texture(texture_albedo, UV).xyz * UV.x * height_range;
+    mod = h;
+	VERTEX = mod;
 }
 
 

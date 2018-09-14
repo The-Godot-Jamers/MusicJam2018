@@ -3,14 +3,15 @@ extends Node
 var lvl = 0 setget _set_lvl, _get_lvl
 var _lvl
 var lvl1 = preload("res://scenes/space_level.tscn")
-var intro = preload("res://ships/2DShipStuff/ShipDeck.tscn")
+var intro = preload("res://scenes/ShipDeck.tscn")
 var camera1
 var camera2
 var camera3
 var mainship
 var current_camera
 var warranty_color = Color()
-
+var after_intro = false
+var _after_intro
 var songs
 var extra_songs
 
@@ -23,6 +24,7 @@ var colors = ["#472D3C","#7A444A","A05B53","BF7958","EEA160","FFFDAF","B6D53C",
 
 func _ready():
 	Ren.define("lvl", 0)
+	Ren.define("after_intro", false)
 	randomize()
 	songs = list_basic_music("res://music/")
 	#not yet working properly
@@ -96,11 +98,20 @@ func _input(event):
 
 func _set_lvl(value):
 	_lvl = value
-	lvl = _lvl 
 	Ren.define("lvl", value)
 
 func _get_lvl():
 	if Ren.get_value("lvl") != null:
 		_lvl = Ren.get_value("lvl")
 	return _lvl
+
+func _set_after_intro(value):
+	_after_intro = value
+	Ren.define("after_intro", value)
+
+func _get_after_intro():
+	if Ren.get_value("after_intro") != null:
+		_after_intro = Ren.get_value("after_intro")
+	return _after_intro
+
 
