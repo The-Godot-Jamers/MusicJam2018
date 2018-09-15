@@ -16,7 +16,8 @@ var songs
 var extra_songs
 var selected_song = null
 var asteroids = []
-var talking = false
+var talking = false setget _set_talking, _get_talking
+var _talking
 
 var colors = ["#472D3C","#7A444A","A05B53","BF7958","EEA160","FFFDAF","B6D53C",
 				"71AA34","397B44","3C5956","302C2E", "5A5353","7D7071",
@@ -28,6 +29,7 @@ var colors = ["#472D3C","#7A444A","A05B53","BF7958","EEA160","FFFDAF","B6D53C",
 func _ready():
 	Ren.define("lvl", 0)
 	Ren.define("after_intro", false)
+	Ren.define("talking", false)
 	randomize()
 	make_asteroid_shapes()
 	songs = list_basic_music("res://music/")
@@ -171,4 +173,11 @@ func make_asteroid_shapes():
 		surf.commit_to_surface(mmesh)
 		asteroids.append(mmesh)
 
+func _set_talking(value):
+	_talking = value
+	Ren.define("talking", value)
 
+func _get_talking():
+	if Ren.get_value("talking") != null:
+		_talking = Ren.get_value("talking")
+	return _talking

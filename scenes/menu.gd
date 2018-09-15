@@ -4,7 +4,11 @@ var intro = true
 
 func _ready():
 	$center/vbox/start.connect("pressed",self,"_on_start_pressed")
+<<<<<<< HEAD
 	$center/vbox/intro.connect("pressed",self,"_on_intro_pressed")
+=======
+#	$center/vbox/options.connect("pressed",self,"_on_options_pressed")
+>>>>>>> 0ffd9a98a844a0903742db9c3ffff1ae1760316f
 	$center/vbox/quit.connect("pressed",self,"_on_quit_pressed")
 
 func menu_reset():
