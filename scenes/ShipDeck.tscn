@@ -183,7 +183,6 @@ __meta__ = {
 
 position = Vector2( 557.841, 104.412 )
 scale = Vector2( 0.59375, 0.59375 )
-z_index = 1
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -205,7 +204,7 @@ scale = Vector2( 0.114382, 0.114382 )
 frames = SubResource( 3 )
 animation = "idle"
 playing = true
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
