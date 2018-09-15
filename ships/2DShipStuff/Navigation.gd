@@ -59,6 +59,10 @@ func nav_to(new_pos):
 
 
 func handle_input(delta):
+
+	if Globals.talking:
+		return
+
 	var new_pos = $Player.position
 	var mouse_pos = get_global_mouse_position()
 

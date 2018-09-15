@@ -16,6 +16,7 @@ var songs
 var extra_songs
 var selected_song = null
 var asteroids = []
+var talking = false
 
 var colors = ["#472D3C","#7A444A","A05B53","BF7958","EEA160","FFFDAF","B6D53C",
 				"71AA34","397B44","3C5956","302C2E", "5A5353","7D7071",

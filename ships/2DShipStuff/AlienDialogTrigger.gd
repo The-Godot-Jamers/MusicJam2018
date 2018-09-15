@@ -8,6 +8,7 @@ func story(dialog_name):
 		return
 	
 	if not Globals.after_intro:
+		Globals.talking = true
 		intro()
 		Window.show()
 		return
@@ -15,6 +16,7 @@ func story(dialog_name):
 
 	match Ren.story_state:
 		"start":
+			Globals.talking = true
 			Ren.say({
 				"who":"alien",
 				"what": "Hey check out the bounties and music in the brig. It should help."
@@ -23,6 +25,7 @@ func story(dialog_name):
 			Window.show()
 		
 		"exit_dialog":
+			Globals.talking = false
 			Window.hide()
 
 
@@ -30,7 +33,7 @@ func intro():
 	match Ren.story_state:
 		"start":
 			Ren.say({
-				"who":"Player",
+				"who":"player",
 				"what": "Are you okay?"
 			})
 			Ren.story_state = "alien01"
@@ -84,4 +87,5 @@ func intro():
 			Ren.story_state = "exit_dialog"
 		
 		"exit_dialog":
+			Globals.talking = false
 			Window.hide()
