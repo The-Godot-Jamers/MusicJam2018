@@ -625,7 +625,7 @@ text = "Quit"
 [node name="SkipTimer" type="Timer" parent="Quick" index="10"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 0.2
 one_shot = false
 autostart = false
 
@@ -633,7 +633,7 @@ autostart = false
 
 process_mode = 1
 wait_time = 1.0
-one_shot = false
+one_shot = true
 autostart = false
 
 [node name="InfoAnim" type="AnimationPlayer" parent="Quick" index="12"]
