@@ -10,7 +10,6 @@ func story(dialog_name):
 	if not Globals.after_intro:
 		Globals.talking = true
 		intro()
-		Window.show()
 		return
 	
 
@@ -37,6 +36,7 @@ func intro():
 				"what": "Are you okay?"
 			})
 			Ren.story_state = "alien01"
+			Window.show()
 		
 		"alien01":
 			Ren.say({
@@ -75,7 +75,7 @@ func intro():
 		
 		"player03":
 			Ren.say({
-				"who":"Player",
+				"who":"player",
 				"what": " LOL, before the war, people used to do gamejams, this sounds like a lazy way to avoid a singular player campaign."
 			})
 			Ren.story_state = "alien04"
