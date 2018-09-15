@@ -42,7 +42,7 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[node name="ShipDeck" type="Node2D" index="0"]
+[node name="ShipDeck" type="Node2D"]
 
 [node name="bg" type="Sprite" parent="." index="0"]
 

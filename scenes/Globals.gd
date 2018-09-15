@@ -14,6 +14,7 @@ var after_intro = false
 var _after_intro
 var songs
 var extra_songs
+var selected_song = null
 var asteroids = []
 
 var colors = ["#472D3C","#7A444A","A05B53","BF7958","EEA160","FFFDAF","B6D53C",
