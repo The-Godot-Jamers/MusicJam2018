@@ -16,7 +16,7 @@ func story(dialog_name):
 			"start":
 				Ren.say({
 					"who":"alien",
-					"what": "He check out the bounties and music in the brig. It should help."
+					"what": "Hey check out the bounties and music in the brig. It should help."
 				})
 				Ren.story_state = "exit_dialog"
 			

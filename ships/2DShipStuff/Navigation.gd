@@ -1,7 +1,7 @@
 extends Navigation2D
 
 
-export var speed = 500.0
+export var speed = 800.0
 export var keyboard_speed = 800.0
 export var rot_speed = 0.5
 
@@ -32,7 +32,7 @@ func _process(delta):
 			else:
 				path[path.size() - 1] = pfrom.linear_interpolate(pto, to_walk/d)
 				to_walk = 0
-		
+			$Player.look_at(pto)
 		var atpos = path[path.size() - 1]
 		var new_pos = atpos - $Player.position
 		$Player.move_and_collide(new_pos)
@@ -64,7 +64,6 @@ func handle_input(delta):
 
 	if Input.is_action_pressed("left_mouse_button"):
 		nav_to(mouse_pos)
-		$Player.look_at(mouse_pos)
 		return
 
 #
