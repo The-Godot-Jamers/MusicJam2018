@@ -762,6 +762,7 @@ _sections_unfolded = [ "BBCode", "Rect", "Size Flags", "custom_colors", "custom_
 margin_top = 50.0
 margin_right = 905.0
 margin_bottom = 90.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="." index="1"]
 
