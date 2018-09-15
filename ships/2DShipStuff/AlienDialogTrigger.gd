@@ -9,19 +9,21 @@ func story(dialog_name):
 	
 	if not Globals.after_intro:
 		intro()
+		Window.show()
 		return
 	
-	if dialog_name == "alien_menu":
-		match Ren.story_state:
-			"start":
-				Ren.say({
-					"who":"alien",
-					"what": "Hey check out the bounties and music in the brig. It should help."
-				})
-				Ren.story_state = "exit_dialog"
-			
-			"exit_dialog":
-				Window.hide()
+
+	match Ren.story_state:
+		"start":
+			Ren.say({
+				"who":"alien",
+				"what": "Hey check out the bounties and music in the brig. It should help."
+			})
+			Ren.story_state = "exit_dialog"
+			Window.show()
+		
+		"exit_dialog":
+			Window.hide()
 
 
 func intro():

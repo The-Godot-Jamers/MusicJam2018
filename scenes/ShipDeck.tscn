@@ -75,7 +75,7 @@ scale = Vector2( 0.3, 0.3 )
 position = Vector2( 548.5, 342 )
 scale = Vector2( 0.3, 0.3 )
 
-[node name="MetlaDialogTrigger" type="Area2D" parent="." index="4"]
+[node name="MetalDialogTrigger" type="Area2D" parent="." index="4"]
 
 position = Vector2( 765.951, 231.298 )
 input_pickable = true
@@ -87,14 +87,14 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetlaDialogTrigger" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MetalDialogTrigger" index="0"]
 
 position = Vector2( -12.6796, -2.92607 )
 build_mode = 0
 polygon = PoolVector2Array( -24, -27, -24, 24, 27, 24, 27, -27 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Character" type="Node" parent="MetlaDialogTrigger" index="1"]
+[node name="Character" type="Node" parent="MetalDialogTrigger" index="1"]
 
 script = ExtResource( 5 )
 __meta__ = {
@@ -107,7 +107,7 @@ prefix = ""
 suffix = ""
 avatar = ExtResource( 7 )
 
-[node name="TheWitch" type="Sprite" parent="MetlaDialogTrigger" index="2"]
+[node name="TheWitch" type="Sprite" parent="MetalDialogTrigger" index="2"]
 
 position = Vector2( 7.40167, -10.5006 )
 rotation = 1.55615

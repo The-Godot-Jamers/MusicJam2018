@@ -6,7 +6,6 @@ var is_in_area = false
 func _ready():
 	$Area2D.connect("body_entered", self, "_on_enter_door_area")
 	$Area2D.connect("body_exited", self, "_on_exit_door_area")
-	Ren.connect("story_step", self, "story")
 
 func _on_enter_door_area(body):
 	if body.name != "Player":
@@ -16,7 +15,6 @@ func _on_enter_door_area(body):
 func _process(delta):
 	if not is_in_area:
 		return
-	
 	
 	if can_be_opened:
 		$AnimationPlayer.play("open")

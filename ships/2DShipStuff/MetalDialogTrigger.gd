@@ -4,11 +4,12 @@ func _ready():
 	dialog_id = "metal_dialog"
 
 func story(dialog_name):
-#	if dialog_name != dialog_id:
-#		return
+	if dialog_name != dialog_id:
+		return
 	
 	if not Globals.after_intro:
 		intro()
+		Window.show()
 		return
 
 	match Ren.story_state:
@@ -18,6 +19,7 @@ func story(dialog_name):
 				"what": "You ready for some PVP?"
 			})
 			Ren.story_state = "exit_dialog"
+			Window.show()
 		
 		"exit_dialog":
 			Window.hide()
@@ -49,7 +51,7 @@ func intro():
 		
 		"player02":
 			Ren.say({
-				"who":"captain",
+				"who":"player",
 				"what": "Huh, sure?"
 			})
 			Ren.story_state = "metal02"
