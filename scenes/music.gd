@@ -3,14 +3,17 @@ extends AudioStreamPlayer
 var song = 0
 
 func _ready():
-	get_parent().get_node("visualiser").set_music(stream)
-	play()
+	if Globals.selected_song != null:
+		change_music(Globals.selected_song)
+	else:
+		get_parent().get_node("visualiser").set_music(stream)
+		play()
 
 func change_music(music):
 	stream = load("res://music/%s" % music)
 	get_parent().get_node("visualiser").set_music(stream)
 	play()
-	print(Globals.songs[song])
+	print(stream)
 	if song < Globals.songs.size()-1:
 		song += 1
 	else:

@@ -7,13 +7,15 @@ func _ready():
 		var but = Button.new()
 		but.text = Globals.songs[i]
 		$center/vbox.add_child(but)
-		
-	for i in $center/vbox.get_children().size():
-		var b = get_child(i)
-		b.connect("pressed", self, "select_music")
-		print(b.is_connected("pressed", self, "selec_music"))
-		
+		but.connect("pressed", self, "_select_music")
 
 
-func select_music(selected):
-	print(selected)
+
+func _select_music():
+	var songs = $center/vbox.get_children()
+	var selected 
+	for i in songs:
+		if i.pressed:
+			selected = i.text
+	Globals.selected_song = selected
+	hide()

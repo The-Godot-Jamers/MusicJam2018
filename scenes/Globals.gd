@@ -14,6 +14,7 @@ var after_intro = false
 var _after_intro
 var songs
 var extra_songs
+var selected_song = null
 var asteroids = []
 var talking = false
 
