@@ -37,8 +37,6 @@ func active_dialog():
 	
 	if Ren.current_node != self:
 		Ren.current_node = self
-	
-	Window.show()
 
 func story(dialog_name):
 	if dialog_name != dialog_id:
