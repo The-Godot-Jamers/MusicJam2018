@@ -1,9 +1,6 @@
 extends Node2D
 
-
-export(bool) var closed = false ## player can't go in if true
-export(String, MULTILINE) var why_closed = "" ## what player say about doors if they are closed
-var can_be_open = true ## used to open/close door
+var can_be_opened = true ## used to open/close door
 var is_in_area = false
 
 func _ready():
@@ -20,56 +17,19 @@ func _process(delta):
 	if not is_in_area:
 		return
 	
-#	if not Input.is_action_just_pressed("shoot"):
-#		return
-
-	if closed:
-		active_dialog()
-		return
 	
-	if can_be_open:
+	if can_be_opened:
 		$AnimationPlayer.play("open")
-		can_be_open = false
+		can_be_opened = false
 
 func _on_exit_door_area(body):
 	if body.name != "Player":
 		return
 
 	is_in_area = false
-	if closed:
-		return
-	
-	if not can_be_open:
+
+	if not can_be_opened:
 		$AnimationPlayer.play_backwards("open")
-		can_be_open = true
+		can_be_opened = true
 
-func active_dialog():
-	Ren.jump(
-		"shipdeck",
-		name,
-		"locked",
-		false
-	)
-	if not Ren.started:
-		Ren.start()
-	
-	if Ren.current_node != self:
-		Ren.current_node = self
-	
-	Window.show()
-
-func story(dialog_name):
-	if dialog_name != name:
-		return
-
-	match Ren.story_state:
-		"locked":
-			Ren.say({
-				"who":"player",
-				"what": why_closed
-			})
-			Ren.story_state = "exit_dialog"
-		
-		"exit_dialog":
-			Window.hide()
 

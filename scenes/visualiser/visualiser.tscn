@@ -61,7 +61,7 @@ shader_param/a5 = null
 shader_param/a6 = null
 _sections_unfolded = [ "shader_param" ]
 
-[node name="visualiser" type="Control"]
+[node name="visualiser" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

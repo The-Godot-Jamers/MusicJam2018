@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://addons/Ren/nodes/ren_say_panel.gd" type="Script" id=1]
 [ext_resource path="res://addons/Ren/icons/ren_panel.svg" type="Texture" id=2]
@@ -8,8 +8,6 @@
 [ext_resource path="res://ubuntu-font-family/Ubuntu-RI.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://ubuntu-font-family/Ubuntu-R.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://scenes/gui/Labels/dialogue_text.tscn" type="PackedScene" id=8]
-[ext_resource path="res://addons/Ren/nodes/ren_line_edit.gd" type="Script" id=9]
-[ext_resource path="res://addons/Ren/icons/ren_line_edit.svg" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -697,7 +695,7 @@ tracks/8/keys = {
 "values": [ Vector2( 100, 111 ) ]
 }
 
-[node name="RenSayPanel" type="Panel" index="0"]
+[node name="RenSayPanel" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -761,42 +759,12 @@ _sections_unfolded = [ "BBCode", "Rect", "Size Flags", "custom_colors", "custom_
 
 [node name="Dialog" parent="VBox" index="1" instance=ExtResource( 8 )]
 
-margin_top = 38.0
+margin_top = 50.0
 margin_right = 905.0
-margin_bottom = 131.0
-
-[node name="RenLineEdit" type="LineEdit" parent="VBox" index="2"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 76.0
-margin_right = 905.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
-script = ExtResource( 9 )
-_sections_unfolded = [ "Rect" ]
-__meta__ = {
-"_editor_icon": ExtResource( 10 )
-}
+margin_bottom = 90.0
 
 [node name="ViewportContainer" type="ViewportContainer" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

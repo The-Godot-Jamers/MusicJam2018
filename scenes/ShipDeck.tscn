@@ -67,35 +67,15 @@ __meta__ = {
 
 [node name="Door" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 555, 147 )
-scale = Vector2( 0.30285, 0.302394 )
-z_index = 1
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+position = Vector2( 552, 148 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="Door2" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 552, 339 )
-scale = Vector2( 0.30285, 0.302394 )
-z_index = 1
-_sections_unfolded = [ "Transform", "Z Index" ]
+position = Vector2( 548.5, 342 )
+scale = Vector2( 0.3, 0.3 )
 
-[node name="Door3" parent="." index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 345, 333 )
-scale = Vector2( 0.30285, 0.302394 )
-z_index = 1
-_sections_unfolded = [ "Transform", "Z Index" ]
-closed = true
-
-[node name="Door4" parent="." index="5" instance=ExtResource( 3 )]
-
-position = Vector2( 348, 150 )
-scale = Vector2( 0.30285, 0.302394 )
-z_index = 1
-_sections_unfolded = [ "Transform", "Z Index" ]
-closed = true
-
-[node name="MetlaDialogTrigger" type="Area2D" parent="." index="6"]
+[node name="MetlaDialogTrigger" type="Area2D" parent="." index="4"]
 
 position = Vector2( 765.951, 231.298 )
 input_pickable = true
@@ -135,7 +115,7 @@ scale = Vector2( 0.0685421, 0.0685421 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AlienDialogTrigger" type="Area2D" parent="." index="7"]
+[node name="AlienDialogTrigger" type="Area2D" parent="." index="5"]
 
 position = Vector2( 178.007, 257.46 )
 input_pickable = true
@@ -176,7 +156,7 @@ rotation = 1.55615
 scale = Vector2( 0.0685421, 0.0685421 )
 texture = ExtResource( 11 )
 
-[node name="Navigation" type="Navigation2D" parent="." index="8"]
+[node name="Navigation" type="Navigation2D" parent="." index="6"]
 
 script = ExtResource( 12 )
 _sections_unfolded = [ "Transform" ]

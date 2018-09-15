@@ -4,8 +4,8 @@ func _ready():
 	dialog_id = "metal_dialog"
 
 func story(dialog_name):
-	if dialog_name != dialog_id:
-		return
+#	if dialog_name != dialog_id:
+#		return
 	
 	if not Globals.after_intro:
 		intro()

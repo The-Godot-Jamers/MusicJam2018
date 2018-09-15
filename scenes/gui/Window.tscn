@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/gui/InGameGUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://themes/rpgm_like/theme.tres" type="Theme" id=2]
-[ext_resource path="res://scenes/gui/Screens.tscn" type="PackedScene" id=3]
 
-[node name="Window" type="Node2D" index="0"]
+[node name="Window" type="Node2D"]
 
 pause_mode = 2
 visible = false
@@ -15,10 +14,5 @@ _sections_unfolded = [ "Pause", "Theme", "Z Index" ]
 
 theme = ExtResource( 2 )
 _sections_unfolded = [ "Theme" ]
-
-[node name="Screens" parent="." index="1" instance=ExtResource( 3 )]
-
-visible = false
-first_dialog = "test"
 
 

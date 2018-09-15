@@ -50,7 +50,7 @@ func intro():
 		"alien02":
 			Ren.say({
 				"who":"alien",
-				"what": "Yes, we may have different music, but music is how the Klacksis navigate the stars. When the {i}Be-quiet{/i} came, they hunted us down with our own music based navagation arrays."
+				"what": "Yes, we may have different music, but music is how the Klacksis navigate the stars. When the {i}Be-quiet{/i} came, they hunted us down with our own music based navigation arrays."
 			})
 		
 		"player02":

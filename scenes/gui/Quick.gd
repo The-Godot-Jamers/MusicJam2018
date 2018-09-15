@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-onready var Screens = get_node("../../Screens")
+#onready var Screens = get_node("../../Screens")
 var save_error_msg = "[color=red]Error saving Game[/color]"
 var load_error_msg = "[color=red]Error loading Game[/color]"
 
@@ -10,20 +10,7 @@ func _ready():
 	$Auto.connect("pressed", self, "on_auto")
 	$AutoTimer.connect("timeout", self, "on_auto_loop")
 	
-	$Skip.connect("pressed", self, "on_skip")
-	$SkipTimer.connect("timeout", self, "on_skip_loop")
-	$Skip.disabled = true
 
-	$History.disabled = true
-	$History.connect("pressed", Screens, "history_menu")
-	
-	$QSave.connect("pressed", self, "_on_qsave")
-	$QLoad.connect("pressed",self, "_on_qload")
-	
-	$Save.connect("pressed", self, "full_save")
-	$Load.connect("pressed", Screens, "load_menu")
-	$Quests.connect("pressed", Screens, "_on_Quests_pressed")
-	$Quit.connect("pressed", Screens, "_on_Quit_pressed")
 
 func _on_qsave():
 	if Ren.savefile():
@@ -100,9 +87,6 @@ func _input(event):
 			Ren.skip_auto = false
 	
 
-func full_save():
-	var screenshot = get_viewport().get_texture().get_data()
-	Screens.save_menu(screenshot)
 
 
 	
