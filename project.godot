@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="MusicJam2018"
+config/name="Space drive beats"
 run/main_scene="res://scenes/splash.tscn"
 config/icon="res://gfx/ringed-planet (1).png"
 
