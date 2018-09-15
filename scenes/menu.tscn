@@ -6,7 +6,7 @@
 [ext_resource path="res://sfx/click1.wav" type="AudioStream" id=4]
 [ext_resource path="res://scenes/music_selector.tscn" type="PackedScene" id=5]
 
-[node name="menu" type="Control" groups=[
+[node name="menu" type="Control" index="0" groups=[
 "menu",
 ]]
 
@@ -105,7 +105,7 @@ _sections_unfolded = [ "Mouse", "Textures" ]
 
 [node name="intro" type="Button" parent="center/vbox" index="1"]
 
-modulate = Color( 0, 1, 0, 1 )
+modulate = Color( 0, 0.490196, 0, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

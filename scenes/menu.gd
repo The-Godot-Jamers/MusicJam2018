@@ -44,8 +44,8 @@ func skip_intro():
 func _on_intro_pressed():
 	$AudioStreamPlayer.play()
 	intro = !intro
-	$center/vbox/intro.modulate.r = 1-$center/vbox/intro.modulate.r
-	$center/vbox/intro.modulate.g = 1-$center/vbox/intro.modulate.g
+	$center/vbox/intro.modulate.r = 0.5-$center/vbox/intro.modulate.r
+	$center/vbox/intro.modulate.g = 0.5-$center/vbox/intro.modulate.g
 
 func _on_quit_pressed():
 	$AudioStreamPlayer.play()
