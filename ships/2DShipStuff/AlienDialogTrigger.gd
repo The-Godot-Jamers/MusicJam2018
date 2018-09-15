@@ -57,6 +57,7 @@ func intro():
 				"who":"alien",
 				"what": "Yes, we may have different music, but music is how the Klacksis navigate the stars. When the {i}Be-quiet{/i} came, they hunted us down with our own music based navigation arrays."
 			})
+			Ren.story_state = "player02"
 		
 		"player02":
 			Ren.say({
@@ -77,9 +78,9 @@ func intro():
 				"who":"Player",
 				"what": " LOL, before the war, people used to do gamejams, this sounds like a lazy way to avoid a singular player campaign."
 			})
-			Ren.story_state = "alien03"
+			Ren.story_state = "alien04"
 		
-		"alien03":
+		"alien04":
 			Ren.say({
 				"who":"alien",
 				"what": "The longer you waste, the less likely will be able to full release your ship, now go train!"
