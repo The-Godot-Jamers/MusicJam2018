@@ -25,6 +25,7 @@ func _on_start_pressed():
 
 func _on_options_pressed():
 	$AudioStreamPlayer.play()
+	
 
 func _on_quit_pressed():
 	$AudioStreamPlayer.play()

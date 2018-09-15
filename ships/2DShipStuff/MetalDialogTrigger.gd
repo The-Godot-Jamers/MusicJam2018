@@ -69,3 +69,4 @@ func intro():
 		"exit_dialog":
 			Globals.talking = false
 			Window.hide()
+
