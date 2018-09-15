@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=23 format=2]
-=======
-[gd_scene load_steps=22 format=2]
->>>>>>> 0ffd9a98a844a0903742db9c3ffff1ae1760316f
 
 [ext_resource path="res://gfx/spacebg.PNG" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=2]
@@ -20,13 +16,8 @@
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A1.png" type="Texture" id=14]
 [ext_resource path="res://Characters/Player/PilotAnimation/Pilot_Walk_A3.png" type="Texture" id=15]
 [ext_resource path="res://ships/2DShipStuff/PlayerAvatar.tscn" type="PackedScene" id=16]
-<<<<<<< HEAD
 [ext_resource path="res://scenes/music_box.gd" type="Script" id=17]
 [ext_resource path="res://scenes/music_selector.tscn" type="PackedScene" id=18]
-=======
-[ext_resource path="res://scenes/gui/Labels/name_text.tscn" type="PackedScene" id=17]
-[ext_resource path="res://ships/2DShipStuff/info.gd" type="Script" id=18]
->>>>>>> 0ffd9a98a844a0903742db9c3ffff1ae1760316f
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -258,17 +249,5 @@ margin_bottom = -249.0
 _sections_unfolded = [ "Mouse", "Rect" ]
 
 [connection signal="body_entered" from="music_box" to="music_box" method="_on_music_box_body_entered"]
-
-[node name="Info" parent="." index="7" instance=ExtResource( 17 )]
-
-margin_left = 333.0
-margin_top = 510.0
-margin_right = 840.0
-margin_bottom = 550.0
-focus_mode = 0
-bbcode_text = "Go to some and press [b]space[/b] to talk"
-text = "Go to some and press space to talk"
-selection_enabled = false
-script = ExtResource( 18 )
 
 
