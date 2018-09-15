@@ -47,7 +47,7 @@ func intro():
 		
 		"player01":
 			Ren.say({
-				"who":"Player",
+				"who":"player",
 				"what": "I'm glad we found you when we did, we have a chance to save humanity, and help your people and mine rebuild."
 			})
 			Ren.story_state = "alien02"
@@ -61,7 +61,7 @@ func intro():
 		
 		"player02":
 			Ren.say({
-				"who":"Player",
+				"who":"player",
 				"what": "I think I'm ready"
 			})
 			Ren.story_state = "alien03"
