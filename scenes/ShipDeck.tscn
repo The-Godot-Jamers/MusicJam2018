@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://gfx/spacebg.PNG" type="Texture" id=1]
 [ext_resource path="res://ships/2DShipStuff/TheIntroShip_Draft.png" type="Texture" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://ships/2DShipStuff/PlayerAvatar.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/music_box.gd" type="Script" id=17]
 [ext_resource path="res://scenes/music_selector.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/gui/Labels/name_text.tscn" type="PackedScene" id=19]
+[ext_resource path="res://ships/2DShipStuff/info.gd" type="Script" id=20]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -49,7 +51,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 20.0128, 25.8277 )
 
-[node name="ShipDeck" type="Node2D"]
+[node name="ShipDeck" type="Node2D" index="0"]
 
 [node name="bg" type="Sprite" parent="." index="0"]
 
@@ -84,6 +86,7 @@ scale = Vector2( 0.3, 0.3 )
 
 [node name="MetlaDialogTrigger" type="Area2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 765.951, 231.298 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -124,6 +127,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AlienDialogTrigger" type="Area2D" parent="." index="5"]
 
+editor/display_folded = true
 position = Vector2( 178.007, 257.46 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -165,6 +169,7 @@ texture = ExtResource( 11 )
 
 [node name="Navigation" type="Navigation2D" parent="." index="6"]
 
+editor/display_folded = true
 script = ExtResource( 12 )
 _sections_unfolded = [ "Transform" ]
 speed = 50.0
@@ -224,6 +229,7 @@ avatar = ExtResource( 16 )
 
 [node name="music_box" type="Area2D" parent="." index="7"]
 
+editor/display_folded = true
 position = Vector2( 574.079, 450.284 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -246,6 +252,18 @@ margin_top = -289.0
 margin_right = -478.0
 margin_bottom = -249.0
 _sections_unfolded = [ "Mouse", "Rect" ]
+
+[node name="info" parent="." index="8" instance=ExtResource( 19 )]
+
+margin_left = 261.0
+margin_top = 507.0
+margin_right = 825.0
+margin_bottom = 547.0
+focus_mode = 0
+bbcode_text = "Go to somebody and press [b]Space[/b] to talk"
+text = "Go to somebody and press Space to talk"
+selection_enabled = false
+script = ExtResource( 20 )
 
 [connection signal="body_entered" from="music_box" to="music_box" method="_on_music_box_body_entered"]
 
