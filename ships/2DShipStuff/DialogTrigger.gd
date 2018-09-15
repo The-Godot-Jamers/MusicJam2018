@@ -17,6 +17,9 @@ func _process(delta):
 	if not is_in_area:
 		return
 
+	if Globals.talking:
+		return
+
 	if Input.is_action_just_pressed("shoot"):
 		active_dialog()
 

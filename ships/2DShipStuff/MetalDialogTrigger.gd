@@ -8,12 +8,14 @@ func story(dialog_name):
 		return
 	
 	if not Globals.after_intro:
+		Globals.talking = true
 		intro()
 		Window.show()
 		return
 
 	match Ren.story_state:
 		"start":
+			Globals.talking = true
 			Ren.say({
 				"who":"metal",
 				"what": "You ready for some PVP?"
@@ -22,6 +24,7 @@ func story(dialog_name):
 			Window.show()
 		
 		"exit_dialog":
+			Globals.talking = false
 			Window.hide()
 
 func intro():
@@ -64,4 +67,5 @@ func intro():
 			Ren.story_state = "exit_dialog"
 		
 		"exit_dialog":
+			Globals.talking = false
 			Window.hide()
