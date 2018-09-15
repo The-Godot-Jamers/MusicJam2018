@@ -18,4 +18,4 @@ func _select_music():
 		if i.pressed:
 			selected = i.text
 	Globals.selected_song = selected
-	hide()
+	get_tree().change_scene_to(Globals.lvl1)

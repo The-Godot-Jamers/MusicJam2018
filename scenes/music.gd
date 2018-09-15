@@ -13,7 +13,7 @@ func change_music(music):
 	stream = load("res://music/%s" % music)
 	get_parent().get_node("visualiser").set_music(stream)
 	play()
-	print(stream)
+	print(music)
 	if song < Globals.songs.size()-1:
 		song += 1
 	else:

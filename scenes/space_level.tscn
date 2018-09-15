@@ -12,7 +12,7 @@
 [sub_resource type="Animation" id=1]
 
 resource_name = "camera_drive"
-length = 1.5
+length = 2.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -22,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0.5, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 8.04861, 11.3532, -3.31019 ), Vector3( 0, 8, -20 ) ]
@@ -34,7 +34,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0.5, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( -38.8753, 142.155, 1.87824 ), Vector3( 0, 177.672, 0 ) ]
