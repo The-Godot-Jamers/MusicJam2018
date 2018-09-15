@@ -45,6 +45,7 @@ func _process(delta):
 	bus = AudioServer.get_bus_index("6")
 	scale_mod = abs(((AudioServer.get_bus_peak_volume_left_db(bus,0) + AudioServer.get_bus_peak_volume_right_db(bus,0)) / 2) / 100)
 	mat.albedo_color.b = scale_mod
+	
 
 func _on_asteroid_body_entered(body):
 	body.take_hit()

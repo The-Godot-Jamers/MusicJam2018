@@ -16,8 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-menu="*res://scenes/menu.tscn"
 Globals="*res://scenes/Globals.tscn"
+menu="*res://scenes/menu.tscn"
 Ren="*res://addons/Ren/Ren.tscn"
 Window="*res://scenes/gui/Window.tscn"
 

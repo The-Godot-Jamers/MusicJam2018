@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://themes/rpgm_like/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/menu.gd" type="Script" id=2]
 [ext_resource path="res://gfx/spacebg.PNG" type="Texture" id=3]
-[ext_resource path="res://sfx/click1.wav" type="AudioStream" id=4]
+[ext_resource path="res://scenes/music_selector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sfx/click1.wav" type="AudioStream" id=5]
 
 [node name="menu" type="Control" index="0"]
 
@@ -40,7 +41,16 @@ texture = ExtResource( 3 )
 stretch_mode = 0
 _sections_unfolded = [ "Mouse", "Theme" ]
 
-[node name="center" type="CenterContainer" parent="." index="1"]
+[node name="music_selector" parent="." index="1" instance=ExtResource( 4 )]
+
+visible = true
+margin_left = 320.0
+margin_top = 150.0
+margin_right = 320.0
+margin_bottom = 150.0
+_sections_unfolded = [ "Mouse", "Rect", "Theme" ]
+
+[node name="center" type="CenterContainer" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -151,9 +161,9 @@ flat = false
 align = 1
 _sections_unfolded = [ "Mouse", "Textures" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
