@@ -18,4 +18,7 @@ func _select_music():
 		if i.pressed:
 			selected = i.text
 	Globals.selected_song = selected
+	Globals._set_lvl(1)
+	if get_parent().is_in_group("menu"):
+		get_parent().skip_intro()
 	get_tree().change_scene_to(Globals.lvl1)

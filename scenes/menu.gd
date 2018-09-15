@@ -24,12 +24,22 @@ func _on_start_pressed():
 			get_tree().paused = false
 			hide()
 		else:
-			
 			$center/vbox.hide()
 			$music_selector.show()
 			raise()
 		$center/vbox/start.text = "Resume"
+	else:
+		hide()
+		get_tree().paused = false
 	$AudioStreamPlayer.play()
+
+func skip_intro():
+	$center/vbox.show()
+	$music_selector.hide()
+	$menubg.hide()
+	hide()
+
+
 
 func _on_intro_pressed():
 	$AudioStreamPlayer.play()

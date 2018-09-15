@@ -86,12 +86,15 @@ func _input(event):
 		if lvl == 0:
 			get_tree().quit()
 		else:
-			menu.show()
-			menu.raise()
-			get_tree().paused = true
-			if lvl <= 0:
-				menu.show_bg()
-#
+			if not menu.visible:
+				menu.show()
+				get_tree().paused = true
+				if lvl <= 0:
+					menu.show_bg()
+				menu.raise()
+			else:
+				menu.hide()
+				get_tree().paused = false
 	if lvl >= 0:
 		if Input.is_action_just_pressed("1"):
 			camera1.current = true
@@ -106,6 +109,7 @@ func _input(event):
 
 func _set_lvl(value):
 	_lvl = value
+	lvl = _lvl
 	Ren.define("lvl", value)
 
 func _get_lvl():
